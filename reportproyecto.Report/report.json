@@ -27,13 +27,22 @@
       "name": "a83abfc0cc0bc865d404",
       "visualContainers": [
         {
-          "config": "{\"name\":\"10398dcbe00107dd284a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":347.17097438818075,\"y\":116.63846965610814,\"z\":1,\"width\":279.9323271746596,\"height\":279.9323271746596,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Tabla.Medida\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Tabla\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Medida\"},\"Name\":\"Tabla.Medida\",\"NativeReferenceName\":\"Medida\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Medida\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "config": "{\"name\":\"07e0e3b31cb954e0e23d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":639.453257173487,\"y\":101.54407946531768,\"z\":1001,\"width\":279.9323271746596,\"height\":279.9323271746596,\"tabOrder\":1001}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Tabla.Medida 2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Tabla\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Medida 2\"},\"Name\":\"Tabla.Medida 2\",\"NativeReferenceName\":\"Medida 2\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 279.93,
+          "width": 279.93,
+          "x": 639.45,
+          "y": 101.54,
+          "z": 1001.00
+        },
+        {
+          "config": "{\"name\":\"10398dcbe00107dd284a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":347.17097438818075,\"y\":116.63846965610814,\"z\":1000,\"width\":279.9323271746596,\"height\":279.9323271746596,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Tabla.Medida\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Tabla\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Medida\"},\"Name\":\"Tabla.Medida\",\"NativeReferenceName\":\"Medida\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Medida\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
           "filters": "[]",
           "height": 279.93,
           "width": 279.93,
           "x": 347.17,
           "y": 116.64,
-          "z": 1.00
+          "z": 1000.00
         },
         {
           "config": "{\"name\":\"1e8d25c2850c5502cdbd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10,\"y\":0,\"width\":280,\"height\":280,\"z\":0,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Tabla.Col1)\"},{\"queryRef\":\"Tabla.Col2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Tabla\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Col1\"},\"Name\":\"Sum(Tabla.Col1)\",\"NativeReferenceName\":\"Col1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Col2\"},\"Name\":\"Tabla.Col2\",\"NativeReferenceName\":\"Col2\"}]},\"drillFilterOtherVisuals\":true}}",
