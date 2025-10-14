@@ -5,6 +5,9 @@ table Tabla
 		formatString: 0
 		lineageTag: e2e403fd-7650-4215-8538-1e1dda7bfb37
 
+	measure 'Medida 2' = MIN(Tabla[Col2])
+		lineageTag: de79b85b-8695-4ee3-92a0-e9e79ed72ae8
+
 	column Col1
 		dataType: int64
 		formatString: 0
