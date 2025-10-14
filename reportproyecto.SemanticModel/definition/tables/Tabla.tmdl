@@ -1,6 +1,10 @@
 table Tabla
 	lineageTag: 41a8088e-4357-40f4-9675-788d9c49f20a
 
+	measure Medida = MAX(Tabla[Col1])
+		formatString: 0
+		lineageTag: e2e403fd-7650-4215-8538-1e1dda7bfb37
+
 	column Col1
 		dataType: int64
 		formatString: 0
