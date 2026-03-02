@@ -1,0 +1,246 @@
+table 'DW_RIESGOS FAC_HIST_EMPLEADOS'
+	lineageTag: e53b619b-0d8c-4abc-9370-540708ff5059
+
+	column SK_HIST_EMPLEADO
+		dataType: int64
+		formatString: 0
+		lineageTag: 19f36672-d408-4a74-992b-cbc94ca736da
+		summarizeBy: sum
+		sourceColumn: SK_HIST_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_EMPLEADO
+		dataType: int64
+		formatString: 0
+		lineageTag: b0616f0b-f99c-4ca2-a9e2-2254ad544981
+		summarizeBy: sum
+		sourceColumn: SK_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_REGISTRO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ebeec224-420a-434b-b2c6-bf5115659429
+		summarizeBy: none
+		sourceColumn: FE_REGISTRO
+
+		variation Variación
+			isDefault
+			relationship: 0ab750cf-68cd-4da6-b4cf-8707e1bae66e
+			defaultHierarchy: LocalDateTable_0c56fec3-1924-457b-8b1e-13fa656ccb4c.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DS_SOCIEDAD
+		dataType: string
+		lineageTag: c7582002-f817-4e82-aa3c-b40e4646e57a
+		summarizeBy: none
+		sourceColumn: DS_SOCIEDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_PAIS
+		dataType: string
+		lineageTag: 675781b4-2fa6-4a0b-be01-2fe955d2d508
+		summarizeBy: none
+		sourceColumn: DS_PAIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_LINEA_NEGOCIO
+		dataType: string
+		lineageTag: dabfdf53-d20f-4b1e-bcf7-a46c8d9c903f
+		summarizeBy: none
+		sourceColumn: DS_LINEA_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_DIVISION
+		dataType: string
+		lineageTag: 27429209-86a1-4eeb-a51b-3bcc67dedc1e
+		summarizeBy: none
+		sourceColumn: DS_DIVISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_COLECTIVO
+		dataType: string
+		lineageTag: 038b2090-ac13-49d9-ab5a-6c9b3d209135
+		summarizeBy: none
+		sourceColumn: DS_COLECTIVO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_SUBFUNCION
+		dataType: string
+		lineageTag: b426ef12-e634-4a5a-8ae8-510cee748d2c
+		summarizeBy: none
+		sourceColumn: DS_SUBFUNCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CONTRATACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb21cf81-673e-44ab-8b5d-5c8e12631d96
+		summarizeBy: none
+		sourceColumn: FE_CONTRATACION
+
+		variation Variación
+			isDefault
+			relationship: e1789e23-d63e-4f4d-a53b-da1caf8d440c
+			defaultHierarchy: LocalDateTable_de921c4d-661a-43ac-a52a-153f84016665.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DS_DIGITAL
+		dataType: string
+		lineageTag: 9aadb869-215e-40f0-9f23-12a782ddd7c5
+		summarizeBy: none
+		sourceColumn: DS_DIGITAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_CODIGO_CONDUCTA
+		dataType: int64
+		formatString: 0
+		lineageTag: 2941770c-cec8-4662-8dc3-b48c21187ef1
+		summarizeBy: sum
+		sourceColumn: FG_CODIGO_CONDUCTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_NORMAS_ANTICORRUPCION
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a384cf2-f573-4464-b672-d1e696e9fcf4
+		summarizeBy: sum
+		sourceColumn: FG_NORMAS_ANTICORRUPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_CRIME_PREVENTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 87f2820e-0044-493a-9d65-52921e47f4bd
+		summarizeBy: sum
+		sourceColumn: FG_CRIME_PREVENTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_NORMAS_TIC
+		dataType: int64
+		formatString: 0
+		lineageTag: d13ac83c-fe78-4f80-a350-8781c1463581
+		summarizeBy: sum
+		sourceColumn: FG_NORMAS_TIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8cbe0a94-de97-4fb6-8dde-8e180805308b
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: bfc7227c-5470-453a-8bd4-dd07246b7853
+			defaultHierarchy: LocalDateTable_8dd11fb8-9eb2-4b56-bbb1-63945a20f4e5.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cd67fbe3-1e92-4dd1-b200-9d39d5ce6bfd
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: 578d4aca-346a-480c-ba16-d0531f7263d2
+			defaultHierarchy: LocalDateTable_2810eb58-8b7b-4c99-9b86-0ade88521437.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_DIGITAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 30de5446-5d11-44c8-85ce-61d615f78958
+		summarizeBy: sum
+		sourceColumn: FG_DIGITAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Año_registro = 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO].[Año]
+		formatString: 0
+		lineageTag: acb88cb9-15a5-43d5-857d-2d2e7dbb79b1
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes_registro =
+			
+			'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO].[Mes]
+		lineageTag: d1b9c130-18da-4da2-92e8-a8eef4ea83f6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_DIGITAL_si/no =
+			
+			IF('DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_DIGITAL]=1, "Sí", "No")
+		lineageTag: d9c84fac-0071-424b-a788-8c5084fc7de9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_CONTRATACION
+		dataType: int64
+		formatString: 0
+		lineageTag: 587e72f6-8203-476c-bdea-cd437b0e753f
+		summarizeBy: sum
+		sourceColumn: FG_CONTRATACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_AÑO_ACTUAL = IF('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro]=YEAR(TODAY()),"Año actual",CONVERT('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro],STRING))
+		lineageTag: 624b6c94-907b-40ae-b60f-75047b2cfe52
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_EMPLEADO
+		dataType: string
+		lineageTag: a9913458-811b-43ed-a198-98c46a4cb1d2
+		summarizeBy: none
+		sourceColumn: ID_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PK = CONCATENATE('DW_RIESGOS FAC_HIST_EMPLEADOS'[ID_EMPLEADO],'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])
+		lineageTag: 7889b2b4-9937-42fb-b3f1-fa4fc8aad266
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS FAC_HIST_EMPLEADOS-463ccb33-96ba-413d-ab37-39b462d82850' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases(Database),
+				    DATA_DW = Origen{[Name="DATA_DW"]}[Data],
+				    DW_RIESGOS_FAC_HIST_EMPLEADOS = DATA_DW{[Schema="DW_RIESGOS",Item="FAC_HIST_EMPLEADOS"]}[Data]
+				in
+				    DW_RIESGOS_FAC_HIST_EMPLEADOS
+
+	annotation PBI_ResultType = Table
+

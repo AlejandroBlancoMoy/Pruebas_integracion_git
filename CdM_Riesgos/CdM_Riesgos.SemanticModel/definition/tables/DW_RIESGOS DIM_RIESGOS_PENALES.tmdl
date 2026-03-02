@@ -1,0 +1,91 @@
+table 'DW_RIESGOS DIM_RIESGOS_PENALES'
+	lineageTag: 707c67aa-927e-44d7-b9e4-7926b873bb26
+
+	column SK_RIESGO_PENAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 8217fcff-21c2-43a9-bb62-9eb11dadab1e
+		summarizeBy: none
+		sourceColumn: SK_RIESGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CO_RIESGO_PENAL
+		dataType: string
+		lineageTag: 61359d1a-0231-408a-8675-e037ab6c8d38
+		summarizeBy: none
+		sourceColumn: CO_RIESGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_RIESGO_PENAL
+		dataType: string
+		lineageTag: 6a644ed5-9b06-4f5d-834a-e0d3d6dd0e61
+		summarizeBy: none
+		sourceColumn: DS_RIESGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_ARTICULO_CODIGO_PENAL
+		dataType: string
+		lineageTag: fde8ea28-c3d7-4645-9880-e016cd450f85
+		summarizeBy: none
+		sourceColumn: DS_ARTICULO_CODIGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CO_METRIC
+		dataType: string
+		lineageTag: 03ec91e9-3f53-4e0a-85c8-347c86ef827f
+		summarizeBy: none
+		sourceColumn: CO_METRIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CONTENIDO
+		dataType: string
+		lineageTag: 59ce3945-e0a3-42c7-abd8-6e3b96933f41
+		summarizeBy: none
+		sourceColumn: DS_CONTENIDO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 164c1d40-230e-42f4-bb64-f9d0c2a3aaeb
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: 86f7f0c3-92b9-4630-b13d-459ec8ae56f7
+			defaultHierarchy: LocalDateTable_fa9a7840-afd5-4334-ac70-974630b1e3be.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 96931ac2-7244-48d9-839d-228ab059bda2
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: cb4ef1de-2f65-4091-a81a-ea85e7f21e92
+			defaultHierarchy: LocalDateTable_9c2f42b7-a63e-48cc-85fb-88e676cd4314.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS DIM_RIESGOS_PENALES-05c49d4a-4e57-4f1c-be3f-85411bfd240f' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_DIM_RIESGOS_PENALES = Origen{[Schema="DW_RIESGOS",Item="DIM_RIESGOS_PENALES"]}[Data]
+				in
+				    DW_RIESGOS_DIM_RIESGOS_PENALES
+
+	annotation PBI_ResultType = Table
+

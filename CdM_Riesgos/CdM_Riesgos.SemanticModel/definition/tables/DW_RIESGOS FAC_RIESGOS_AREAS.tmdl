@@ -1,0 +1,118 @@
+table 'DW_RIESGOS FAC_RIESGOS_AREAS'
+	lineageTag: 801934ab-c323-4d8d-990a-dc52b628cc67
+
+	column SK_RIESGO_AREA
+		dataType: int64
+		formatString: 0
+		lineageTag: fcb32a07-a440-4152-a99c-35b1eb8255ec
+		summarizeBy: sum
+		sourceColumn: SK_RIESGO_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_NEGOCIO
+		dataType: int64
+		formatString: 0
+		lineageTag: aa8dd9b6-f7ba-43da-9c5a-a240219197dc
+		summarizeBy: none
+		sourceColumn: SK_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_RIESGO_PENAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 7715d7ca-a790-4fd4-b42a-e09e97563c80
+		summarizeBy: none
+		sourceColumn: SK_RIESGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_AREA
+		dataType: int64
+		formatString: 0
+		lineageTag: 04e01572-e644-4447-9484-253160cea00a
+		summarizeBy: none
+		sourceColumn: SK_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_APLICABILIDAD
+		dataType: int64
+		formatString: 0
+		lineageTag: 4f90fc21-6c46-4fd2-a9d0-a8009c3d0519
+		summarizeBy: sum
+		sourceColumn: FG_APLICABILIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_AREA
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a518798-c5d8-4851-804e-8249fb7f138b
+		summarizeBy: sum
+		sourceColumn: FG_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d3729199-f55c-41bd-85cc-e4d1e31d4a79
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: 7407dbfa-0bc8-44c5-9861-9ebde0b90ee6
+			defaultHierarchy: LocalDateTable_dfb6efba-1c0a-40fc-bd1b-af3e88ab0f8f.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b104aaea-25d3-469d-b2f2-d5a8696b407f
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: 68d45f7d-bf04-4e34-a76a-ccd82050ec2d
+			defaultHierarchy: LocalDateTable_cdd3b44e-a60f-4560-ab29-e8c8b145e440.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_FICHERO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cb17d530-76c2-44f2-9b00-b33a77906bd5
+		summarizeBy: none
+		sourceColumn: FE_FICHERO
+
+		variation Variación
+			isDefault
+			relationship: cc658f7f-ff21-494c-9814-92e3e2aa57db
+			defaultHierarchy: LocalDateTable_4df26df1-2e99-4270-92f2-e6634b973df0.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FG_AÑO_ACTUAL = IF(YEAR('DW_RIESGOS FAC_RIESGOS_AREAS'[FE_FICHERO])=YEAR(TODAY()),"Año actual",CONVERT(YEAR('DW_RIESGOS FAC_RIESGOS_AREAS'[FE_FICHERO]),STRING))
+		lineageTag: 23ea36ff-156a-47c8-8ca4-b3a0d62a909d
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS FAC_RIESGOS_AREAS-15db90f1-a894-4bd4-a689-68421b70773c' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_FAC_RIESGOS_AREAS = Origen{[Schema="DW_RIESGOS",Item="FAC_RIESGOS_AREAS"]}[Data]
+				in
+				    DW_RIESGOS_FAC_RIESGOS_AREAS
+
+	annotation PBI_ResultType = Table
+

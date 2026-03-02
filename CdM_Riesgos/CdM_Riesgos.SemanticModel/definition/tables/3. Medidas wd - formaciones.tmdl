@@ -1,0 +1,269 @@
+table '3. Medidas wd - formaciones'
+	lineageTag: 62939291-50e0-447b-bd2b-292cd8976c2d
+
+	measure FM_Aceptacion_codigo_conducta =
+			
+			CALCULATE(
+			   [Total_empleados],
+			    'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA]="Si")
+		formatString: 0
+		lineageTag: f134f9a9-36aa-4723-b811-35412d709c29
+
+	measure FM_%Aceptacion_codigo_conducta =
+			
+			DIVIDE(
+			[FM_Aceptacion_codigo_conducta],[Total_empleados])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: da1e44ae-96e6-4f12-9d1e-5a93a1f585d6
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_buena_manera_trabajar =
+			
+			CALCULATE(
+			    [Total_empleados],
+			    'DW_RIESGOS FAC_CURSOS'[DS_CURSO_BUENA_MANERA_TRABAJAR]="Si")
+		formatString: 0
+		lineageTag: ebd93c34-d2dc-44ee-b990-d6e3c2c65dc4
+
+	measure FM_%Aceptacion_buena_manera_trabajar = ```
+			
+			 DIVIDE(
+			[FM_Aceptacion_buena_manera_trabajar],[Total_empleados])
+			```
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 91821e78-d526-4558-9f08-b81268e991c9
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_luchando_contra_corrupcion =
+			
+			CALCULATE(
+			    [Total_empleados],
+			    'DW_RIESGOS FAC_CURSOS'[DS_CURSO_LUCHANDO_CORRUPCION]="Si")
+		lineageTag: 42f54ded-bf29-4050-8b1b-8e8d383e5999
+
+	measure FM_%Aceptacion_luchando_contra_corrupcion =
+			
+			DIVIDE(
+			[FM_Aceptacion_luchando_contra_corrupcion],[Total_empleados])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 1d7084cf-62cf-4085-87b5-b33e896fb900
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_director_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_directores], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA]="Si")
+		formatString: 0
+		lineageTag: 824ba074-9ba2-4ac4-af53-dd629e4eeaec
+
+	measure FM_%Aceptacion_director_codigo_conducta =
+			IF([Total_directores]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_director_codigo_conducta],[Total_directores]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 0ac350d8-2400-4ce6-a5a1-3df21580635e
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_director_buena_manera_trabajar =
+			
+			CALCULATE(
+			    [Total_directores], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_BUENA_MANERA_TRABAJAR]="Si")
+		formatString: 0
+		lineageTag: 761b410c-550d-4d68-8f67-c8cba17f38cf
+
+	measure FM_%Aceptacion_director_buena_manera_trabajar =
+			IF([Total_directores]=0,1,
+			 DIVIDE(
+			[FM_Aceptacion_director_buena_manera_trabajar],[Total_directores]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 5ba6a551-d75d-463a-a9ca-53d582b67f8a
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_director_luchando_contra_corrupcion =
+			
+			CALCULATE(
+			    [Total_directores], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_LUCHANDO_CORRUPCION]="Si")
+		lineageTag: 694567c6-6422-456c-a6d7-4116a8bb793b
+
+	measure FM_%Aceptacion_director_luchando_contra_corrupcion =
+			IF([Total_directores]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_director_luchando_contra_corrupcion],[Total_directores]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 5170df0d-739c-4191-aa23-3c293c776be5
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_gerente_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_gerentes], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA]="Si")
+		formatString: 0
+		lineageTag: d8bb9b29-d890-4b54-b8af-90c8e27e6355
+
+	measure FM_%Aceptacion_gerente_codigo_conducta =
+			IF([Total_gerentes]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_gerente_codigo_conducta],[Total_gerentes]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 157912c3-6fda-450b-a7e2-ea9d2cafaf39
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_gerente_luchando_contra_corrupcion =
+			
+			CALCULATE(
+			    [Total_gerentes], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_LUCHANDO_CORRUPCION]="Si")
+		lineageTag: 52170eef-ad58-439d-9bf7-f12308952ada
+
+	measure FM_%Aceptacion_gerente_luchando_contra_corrupcion =
+			IF([Total_gerentes]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_gerente_luchando_contra_corrupcion],[Total_gerentes]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: ea8defa3-a431-40aa-907b-fbbaaf716ac9
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_gerente_buena_manera_trabajar =
+			
+			CALCULATE(
+			    [Total_gerentes], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_BUENA_MANERA_TRABAJAR]="Si")
+		formatString: 0
+		lineageTag: c36dac7f-0325-4c66-b276-d252b3276603
+
+	measure FM_%Aceptacion_gerente_buena_manera_trabajar =
+			IF([Total_gerentes]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_gerente_buena_manera_trabajar],[Total_gerentes]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 3ccb2284-28f4-471a-a432-de89321f9113
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_resto_conID_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_resto_conID], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA]="Si")
+		formatString: 0
+		lineageTag: 10dc9e6a-f85b-4d69-be41-c97f917b6340
+
+	measure FM_%Aceptacion_resto_conID_codigo_conducta =
+			IF([Total_resto_conID]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_resto_conID_codigo_conducta],[Total_resto_conID]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: c5710388-4971-43bf-a638-8aaf0dd54312
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_resto_conID_buena_manera_trabajar =
+			
+			CALCULATE(
+			    [Total_resto_conID], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_BUENA_MANERA_TRABAJAR]="Si")
+		formatString: 0
+		lineageTag: c6912474-6a44-4197-bee7-493557801cc9
+
+	measure FM_%Aceptacion_resto_conID_buena_manera_trabajar =
+			IF([Total_resto_conID]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_resto_conID_buena_manera_trabajar],[Total_resto_conID]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: f0c6c211-004f-42c4-b9ae-d18753828b8a
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_resto_conID_luchando_contra_corrupcion =
+			
+			CALCULATE(
+			    [Total_resto_conID], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_LUCHANDO_CORRUPCION]="Si")
+		lineageTag: 93603745-fc45-4a9f-a585-d20a518b6183
+
+	measure FM_%Aceptacion_resto_conID_luchando_contra_corrpcuion =
+			IF([Total_resto_conID]=0,1,
+			DIVIDE(
+			[FM_Aceptacion_resto_conID_luchando_contra_corrupcion],[Total_resto_conID]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: e15c2e5e-0568-4d8f-9282-b970c9e7620f
+
+		changedProperty = FormatString
+
+	measure FM_Aceptacion_directores_gerentes_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_directores_gerentes], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA]="Si")
+		formatString: 0
+		lineageTag: 006435b5-d151-4651-a186-5c3803ed9ebc
+
+	measure FM_Aceptacion_directores_gerentes_buena_manera_trabajar =
+			
+			CALCULATE(
+			    [Total_directores_gerentes], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_BUENA_MANERA_TRABAJAR]="Si")
+		formatString: 0
+		lineageTag: 45c7f7cd-260a-43dc-8373-bd27d296f5d3
+
+	measure FM_Aceptacion_directores_gerentes_luchando_contra_corrupcion =
+			
+			CALCULATE(
+			    [Total_directores_gerentes], 'DW_RIESGOS FAC_CURSOS'[DS_CURSO_LUCHANDO_CORRUPCION]="Si")
+		formatString: 0
+		lineageTag: f3160ace-670f-4498-9cbb-1870ec570c8b
+
+	measure FM_%Aceptacion_director_gerentes_codigo_conducta =
+			
+			DIVIDE(
+			[FM_Aceptacion_directores_gerentes_codigo_conducta],[Total_directores_gerentes])
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 462e5280-742e-40fc-bd45-7af807f0eb44
+
+	measure FM_%Aceptacion_director_gerentes_buena_manera_trabajar =
+			
+			DIVIDE(
+			[FM_Aceptacion_directores_gerentes_buena_manera_trabajar],[Total_directores_gerentes])
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 7d70b9ed-84ab-41cf-8a40-ffdf008363bb
+
+	measure FM_%Aceptacion_director_gerentes_luchando_contra_corrupcion =
+			
+			DIVIDE(
+			[FM_Aceptacion_directores_gerentes_luchando_contra_corrupcion],[Total_directores_gerentes])
+		formatString: 0\ %;-0\ %;0\ %
+		lineageTag: 402a71bc-682a-4287-8ab5-146eee27fc6b
+
+	measure FM_Aceptacion_codigo_conducta_v2 =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_CURSOS'[FE_CURSO]), COUNTROWS('DW_RIESGOS FAC_CURSOS')),
+			    'DW_RIESGOS FAC_CURSOS'[FE_CURSO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_CURSOS'),
+			    FILTER('DW_RIESGOS FAC_CURSOS',
+			   'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA] = "Si" && MONTH( 'DW_RIESGOS FAC_CURSOS'[FE_CURSO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_CURSOS'),
+			    FILTER('DW_RIESGOS FAC_CURSOS',
+			   'DW_RIESGOS FAC_CURSOS'[DS_CURSO_CODIGO_CONDUCTA] = "Si" && MONTH( 'DW_RIESGOS FAC_CURSOS'[FE_CURSO]) = mes))
+			)
+		formatString: 0
+		lineageTag: 40b48462-be5b-4226-9b52-29c89719c107
+
+	partition '3. Medidas wd - formaciones-7e3d4907-036f-4828-8d00-99bc81b88116' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,215 @@
+relationship 2c5b5fc1-adcd-4ff6-985c-402abd71b0b9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_AREAS'.FE_CARGA
+	toColumn: LocalDateTable_7b047fe5-4c27-452e-948b-de45215867fa.Date
+
+relationship 59dfe844-83e9-45f8-bec9-a0f6ffcabaa9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_AREAS'.FE_MODIFICACION
+	toColumn: LocalDateTable_a4a22c21-0d68-483b-9da2-4e39dc31bba9.Date
+
+relationship 62b6c6d9-6501-4c32-af3d-551ffb806573
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_CONTROLES'.FE_CARGA
+	toColumn: LocalDateTable_8353e5ff-b8a4-4cec-9e2a-9d92f254f3f6.Date
+
+relationship ca3722e0-6fd4-46b6-8cc4-f1cc11cb6065
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_CONTROLES'.FE_MODIFICACION
+	toColumn: LocalDateTable_af0e2a89-de63-4024-8ed6-8d4be52dd13f.Date
+
+relationship 1a56106e-7833-4941-84f8-b52c25fd2db9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_NEGOCIO'.FE_CARGA
+	toColumn: LocalDateTable_f32db033-2866-40b4-adef-65b2fe602ece.Date
+
+relationship 3520b106-b182-488b-8525-b63e4b4b6c86
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_NEGOCIO'.FE_MODIFICACION
+	toColumn: LocalDateTable_aae07048-7c89-42da-8449-4ebef942d661.Date
+
+relationship 86f7f0c3-92b9-4630-b13d-459ec8ae56f7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_RIESGOS_PENALES'.FE_CARGA
+	toColumn: LocalDateTable_fa9a7840-afd5-4334-ac70-974630b1e3be.Date
+
+relationship cb4ef1de-2f65-4091-a81a-ea85e7f21e92
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_RIESGOS_PENALES'.FE_MODIFICACION
+	toColumn: LocalDateTable_9c2f42b7-a63e-48cc-85fb-88e676cd4314.Date
+
+relationship f23fae46-d951-44c3-8607-229af9adf0f8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_APLIC_CONTROLES'.FE_CARGA
+	toColumn: LocalDateTable_273061ce-90fa-4911-92fe-ca7051744b8b.Date
+
+relationship d9287419-4a20-4e7a-8078-47fce71491fc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_APLIC_CONTROLES'.FE_MODIFICACION
+	toColumn: LocalDateTable_32a0f241-f116-42cd-b899-e631432ce7cd.Date
+
+relationship 7407dbfa-0bc8-44c5-9861-9ebde0b90ee6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_AREAS'.FE_CARGA
+	toColumn: LocalDateTable_dfb6efba-1c0a-40fc-bd1b-af3e88ab0f8f.Date
+
+relationship 68d45f7d-bf04-4e34-a76a-ccd82050ec2d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_AREAS'.FE_MODIFICACION
+	toColumn: LocalDateTable_cdd3b44e-a60f-4560-ab29-e8c8b145e440.Date
+
+relationship 4aeba75e-0238-4bae-b146-b20c4eb048ce
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_INHERENTES'.FE_CARGA
+	toColumn: LocalDateTable_0a7bb593-22cf-41da-afa8-db2f11caaa68.Date
+
+relationship f3cf9a94-ce78-4d97-b839-0fb5d2f4c00c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_INHERENTES'.FE_MODIFICACION
+	toColumn: LocalDateTable_1f12abc2-a744-4dc7-a3ec-04a3da297df4.Date
+
+relationship b9cec9b3-6245-4221-a7d6-dd59a426bf8b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'.FE_CARGA
+	toColumn: LocalDateTable_66ced40a-2c45-4e99-b58c-02a4ba648b82.Date
+
+relationship 17b180d7-0c2f-4d04-9d3d-a08b429cda07
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'.FE_MODIFICACION
+	toColumn: LocalDateTable_4e89aec5-f126-43a8-91f4-ca0f1f2bf723.Date
+
+relationship 039a0d96-c98d-459d-8f87-b28f943450dc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES'.FE_CARGA
+	toColumn: LocalDateTable_7cd16aa4-45f1-450b-a77c-60636747f903.Date
+
+relationship a9786add-05f6-413d-bb5e-8e18039aae14
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES'.FE_MODIFICACION
+	toColumn: LocalDateTable_04e15070-4c4c-422f-a462-eefedfbad0ef.Date
+
+relationship 8d1c60a6-f2c6-43b8-b678-d3aec0841320
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_AREAS'.SK_AREA
+	toColumn: 'DW_RIESGOS DIM_AREAS'.SK_AREA
+
+relationship c09865d9-2283-4a61-8e4b-05b2c5886e96
+	fromColumn: 'DW_RIESGOS FAC_APLIC_CONTROLES'.SK_CONTROL
+	toColumn: 'DW_RIESGOS DIM_CONTROLES'.SK_CONTROL
+
+relationship 213ff2d4-58b8-4da7-ae91-53cc2c067aa4
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'.SK_CONTROL
+	toColumn: 'DW_RIESGOS DIM_CONTROLES'.SK_CONTROL
+
+relationship 57836e22-1c97-4095-88c3-a5cbe36eac7b
+	fromColumn: 'DW_RIESGOS FAC_APLIC_CONTROLES'.SK_NEGOCIO
+	toColumn: 'DW_RIESGOS DIM_NEGOCIO'.SK_NEGOCIO
+
+relationship d86f0839-2a88-46e4-a5f6-420596090604
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_AREAS'.SK_NEGOCIO
+	toColumn: 'DW_RIESGOS DIM_NEGOCIO'.SK_NEGOCIO
+
+relationship 35fc6f15-fa51-4be1-aae6-244cc74fa9bc
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'.SK_NEGOCIO
+	toColumn: 'DW_RIESGOS DIM_NEGOCIO'.SK_NEGOCIO
+
+relationship bf8277cc-57a5-4ed9-a5b4-33dc67c001ec
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_AREAS'.SK_RIESGO_PENAL
+	toColumn: 'DW_RIESGOS DIM_RIESGOS_PENALES'.SK_RIESGO_PENAL
+
+relationship 2ccd0848-0edd-4411-9f31-6932c07a9bf8
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'.SK_RIESGO_PENAL
+	toColumn: 'DW_RIESGOS DIM_RIESGOS_PENALES'.SK_RIESGO_PENAL
+
+relationship 69da04c6-0be4-4bc6-8fd5-f2a04ae600f7
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_INHERENTES'.SK_NEGOCIO
+	toColumn: 'DW_RIESGOS DIM_NEGOCIO'.SK_NEGOCIO
+
+relationship ddd5e9bb-3902-40ef-9904-9e1c38e6523d
+	fromColumn: 'DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES'.SK_NEGOCIO
+	toColumn: 'DW_RIESGOS DIM_NEGOCIO'.SK_NEGOCIO
+
+relationship faeaed9f-3a23-4880-9e35-2f91b55366cd
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_INHERENTES'.SK_RIESGO_PENAL
+	toColumn: 'DW_RIESGOS DIM_RIESGOS_PENALES'.SK_RIESGO_PENAL
+
+relationship 29f77863-2cdb-4550-9793-ac6d68eb88ef
+	fromColumn: 'DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES'.SK_RIESGO_PENAL
+	toColumn: 'DW_RIESGOS DIM_RIESGOS_PENALES'.SK_RIESGO_PENAL
+
+relationship 65d9c3f8-be80-45e7-a6a4-2a3a316c9130
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_APLIC_CONTROLES'.FE_FICHERO
+	toColumn: LocalDateTable_2e5bf356-17c1-46a7-a603-b1f6b41f6795.Date
+
+relationship cc658f7f-ff21-494c-9814-92e3e2aa57db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_AREAS'.FE_FICHERO
+	toColumn: LocalDateTable_4df26df1-2e99-4270-92f2-e6634b973df0.Date
+
+relationship 13448f85-cdee-42b7-9c80-dddf4185a317
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_INHERENTES'.FE_FICHERO
+	toColumn: LocalDateTable_2590aab8-6ee6-409b-91f5-4ac3a62eeb4e.Date
+
+relationship cfc11b17-cbcf-49d7-9d7b-ae99747609b8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'.FE_FICHERO
+	toColumn: LocalDateTable_7bb2b46c-8aba-42d6-9903-0559c444d49c.Date
+
+relationship de1b234b-5aea-4739-adb5-3e285faf768a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES'.FE_FICHERO
+	toColumn: LocalDateTable_357e84cd-7dc4-4fe1-9919-7dd25df6141e.Date
+
+relationship c225d5f0-ab2f-4db3-9700-0aa47cca9242
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_EMPLEADOS'.FE_CARGA
+	toColumn: LocalDateTable_1737ea5d-6d37-4d85-9ebd-f1261ab3e04b.Date
+
+relationship 5349b86d-d783-40b7-9c67-a877804ccdae
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS DIM_EMPLEADOS'.FE_MODIFICACION
+	toColumn: LocalDateTable_ef7052aa-7eee-4de5-a3e0-b652d90e8668.Date
+
+relationship 0ab750cf-68cd-4da6-b4cf-8707e1bae66e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_HIST_EMPLEADOS'.FE_REGISTRO
+	toColumn: LocalDateTable_0c56fec3-1924-457b-8b1e-13fa656ccb4c.Date
+
+relationship e1789e23-d63e-4f4d-a53b-da1caf8d440c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_HIST_EMPLEADOS'.FE_CONTRATACION
+	toColumn: LocalDateTable_de921c4d-661a-43ac-a52a-153f84016665.Date
+
+relationship bfc7227c-5470-453a-8bd4-dd07246b7853
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_HIST_EMPLEADOS'.FE_CARGA
+	toColumn: LocalDateTable_8dd11fb8-9eb2-4b56-bbb1-63945a20f4e5.Date
+
+relationship 578d4aca-346a-480c-ba16-d0531f7263d2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_HIST_EMPLEADOS'.FE_MODIFICACION
+	toColumn: LocalDateTable_2810eb58-8b7b-4c99-9b86-0ade88521437.Date
+
+relationship d2ef4d00-4110-4a42-87c1-273f772539c9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_CURSOS'.FE_CURSO
+	toColumn: LocalDateTable_1a23e07f-5bb0-4e63-808d-9c14bd931a8c.Date
+
+relationship ac3b9445-5616-41fa-a98e-3cfe4803e73d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_CURSOS'.FE_CARGA
+	toColumn: LocalDateTable_1ab0d8dd-b340-46fb-9b0a-76e8bac4bf16.Date
+
+relationship f1c1c57a-527a-4dab-8a11-4eaef5611218
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'DW_RIESGOS FAC_CURSOS'.FE_MODIFICACION
+	toColumn: LocalDateTable_f09fc67f-3140-4bd2-87af-da55b62f82c6.Date
+
+relationship 245a3d76-275c-4348-9564-b0491db51ba0
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'DW_RIESGOS FAC_CURSOS'.PK
+	toColumn: 'DW_RIESGOS FAC_HIST_EMPLEADOS'.PK
+

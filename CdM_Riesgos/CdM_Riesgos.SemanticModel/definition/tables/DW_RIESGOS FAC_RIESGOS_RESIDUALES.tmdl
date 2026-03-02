@@ -1,0 +1,164 @@
+table 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'
+	lineageTag: cb4c3305-fc89-4d1b-95aa-a8d5b23247b3
+
+	column SK_RIESGO_RESIDUAL
+		dataType: int64
+		formatString: 0
+		lineageTag: b4666548-91b5-4e22-9dbb-8aa43f7e1497
+		summarizeBy: sum
+		sourceColumn: SK_RIESGO_RESIDUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_NEGOCIO
+		dataType: int64
+		formatString: 0
+		lineageTag: 54ad351b-b00d-4de8-8c7d-43fe635acfd6
+		summarizeBy: none
+		sourceColumn: SK_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_RIESGO_PENAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 6dadf628-1a1c-44be-8f89-3b57fb9e55c8
+		summarizeBy: none
+		sourceColumn: SK_RIESGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_CONTROL
+		dataType: int64
+		formatString: 0
+		lineageTag: 928d0f0e-0036-4fee-bb8f-bfe633c7d994
+		summarizeBy: none
+		sourceColumn: SK_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_APLICABILIDAD
+		dataType: int64
+		formatString: 0
+		lineageTag: f11a3ae7-b844-4531-a11e-1f82c366f0fc
+		summarizeBy: sum
+		sourceColumn: FG_APLICABILIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_TIPO_CONTROL
+		dataType: int64
+		formatString: 0
+		lineageTag: a5b5f66d-603b-4615-af97-7583d978635c
+		summarizeBy: sum
+		sourceColumn: ID_TIPO_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_AUTOMATIZACION
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a4e2c7f-c6ae-4f10-b530-453349deb946
+		summarizeBy: sum
+		sourceColumn: ID_AUTOMATIZACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_INTERVENCION_TERCEROS
+		dataType: int64
+		formatString: 0
+		lineageTag: e38d35bc-9b2f-40d9-83ea-e3277bbb39d4
+		summarizeBy: sum
+		sourceColumn: ID_INTERVENCION_TERCEROS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_EFICIENCIA_OPERATIVA
+		dataType: string
+		lineageTag: 8d9196ad-e27b-4b7a-ae62-1cd7bebf8551
+		summarizeBy: none
+		sourceColumn: DS_EFICIENCIA_OPERATIVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_EFICIENCIA_OPERATIVA
+		dataType: int64
+		formatString: 0
+		lineageTag: b4bbb686-bd13-4419-98b4-bcd39a03ff55
+		summarizeBy: sum
+		sourceColumn: ID_EFICIENCIA_OPERATIVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_EFECTIVIDAD_DISEÑO
+		dataType: string
+		lineageTag: bba1fa1f-3e19-416b-9d1c-4c6925e98a63
+		summarizeBy: none
+		sourceColumn: DS_EFECTIVIDAD_DISEÑO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_EFECTIVIDAD_DISEÑO
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a2d8b53-0da2-4cf6-acdc-fc9d73c22e1a
+		summarizeBy: sum
+		sourceColumn: ID_EFECTIVIDAD_DISEÑO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c8777120-6eda-4306-854d-251eac14ecb6
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: b9cec9b3-6245-4221-a7d6-dd59a426bf8b
+			defaultHierarchy: LocalDateTable_66ced40a-2c45-4e99-b58c-02a4ba648b82.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bcb11f79-99d9-4fda-bdb4-6379bc327bc0
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: 17b180d7-0c2f-4d04-9d3d-a08b429cda07
+			defaultHierarchy: LocalDateTable_4e89aec5-f126-43a8-91f4-ca0f1f2bf723.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_FICHERO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d77ebc0c-8929-4a1d-86b4-7d30373b2e93
+		summarizeBy: none
+		sourceColumn: FE_FICHERO
+
+		variation Variación
+			isDefault
+			relationship: cfc11b17-cbcf-49d7-9d7b-ae99747609b8
+			defaultHierarchy: LocalDateTable_7bb2b46c-8aba-42d6-9903-0559c444d49c.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'DW_RIESGOS FAC_RIESGOS_RESIDUALES-c70585c6-f514-4948-b03b-68868339ae6a' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_FAC_RIESGOS_RESIDUALES = Origen{[Schema="DW_RIESGOS",Item="FAC_RIESGOS_RESIDUALES"]}[Data]
+				in
+				    DW_RIESGOS_FAC_RIESGOS_RESIDUALES
+
+	annotation PBI_ResultType = Table
+

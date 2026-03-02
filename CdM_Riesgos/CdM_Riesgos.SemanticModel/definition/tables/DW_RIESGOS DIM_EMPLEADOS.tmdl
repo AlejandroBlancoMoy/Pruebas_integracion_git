@@ -1,0 +1,70 @@
+table 'DW_RIESGOS DIM_EMPLEADOS'
+	lineageTag: 0feb58da-c9d1-4504-9cc4-5a132e68b093
+
+	column SK_EMPLEADO
+		dataType: int64
+		formatString: 0
+		lineageTag: f6eb25e7-f3c9-436a-8cd4-dca74170c141
+		summarizeBy: sum
+		sourceColumn: SK_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_EMPLEADO
+		dataType: int64
+		formatString: 0
+		lineageTag: 39486157-75ad-48c2-a8c5-4d3ca48187b9
+		summarizeBy: sum
+		sourceColumn: ID_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_GRUPO_SEGURIDAD
+		dataType: int64
+		formatString: 0
+		lineageTag: b3290953-6aba-4d24-9d39-3f7e282c76d3
+		summarizeBy: sum
+		sourceColumn: FG_GRUPO_SEGURIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4be0e204-8ead-4f63-800d-ac4488f1e658
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: c225d5f0-ab2f-4db3-9700-0aa47cca9242
+			defaultHierarchy: LocalDateTable_1737ea5d-6d37-4d85-9ebd-f1261ab3e04b.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4548a046-262e-4325-b7fd-1091e88b1ed3
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: 5349b86d-d783-40b7-9c67-a877804ccdae
+			defaultHierarchy: LocalDateTable_ef7052aa-7eee-4de5-a3e0-b652d90e8668.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS DIM_EMPLEADOS-fdf1449b-2b52-4282-b108-bb40d7c23a60' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases(Database),
+				    DATA_DW = Origen{[Name="DATA_DW"]}[Data],
+				    DW_RIESGOS_DIM_EMPLEADOS = DATA_DW{[Schema="DW_RIESGOS",Item="DIM_EMPLEADOS"]}[Data]
+				in
+				    DW_RIESGOS_DIM_EMPLEADOS
+
+	annotation PBI_ResultType = Table
+

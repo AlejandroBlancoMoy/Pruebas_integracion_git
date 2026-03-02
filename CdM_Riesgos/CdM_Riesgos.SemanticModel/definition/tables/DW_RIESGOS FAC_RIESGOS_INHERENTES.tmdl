@@ -1,0 +1,302 @@
+table 'DW_RIESGOS FAC_RIESGOS_INHERENTES'
+	lineageTag: 9b6cd875-7e24-4649-828d-66ccd9ea7335
+
+	column SK_RIESGO_INHERENTE
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c48f6bf-297c-4a17-b42f-9c2005a88bb5
+		summarizeBy: sum
+		sourceColumn: SK_RIESGO_INHERENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_NEGOCIO
+		dataType: int64
+		formatString: 0
+		lineageTag: b3bad198-7423-408e-a95b-66a4f353cf3e
+		summarizeBy: none
+		sourceColumn: SK_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_RIESGO_PENAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 0b406487-14d5-4342-b213-35ac03784b79
+		summarizeBy: none
+		sourceColumn: SK_RIESGO_PENAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_APLICABILIDAD
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f66343f-e67a-47a7-8195-97d0b08e72b4
+		summarizeBy: sum
+		sourceColumn: FG_APLICABILIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_FRECUENCIA
+		dataType: string
+		lineageTag: d40333fa-03cf-4d5c-a71e-bf465a9c68ba
+		summarizeBy: none
+		sourceColumn: DS_FRECUENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_FRECUENCIA
+		dataType: int64
+		formatString: 0
+		lineageTag: 589b9db8-ffc2-4220-901c-e343a8787299
+		summarizeBy: sum
+		sourceColumn: ID_FRECUENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_COMPLEJIDAD
+		dataType: string
+		lineageTag: 3251a6d3-b76a-43d5-839f-fd313a34225a
+		summarizeBy: none
+		sourceColumn: DS_COMPLEJIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_COMPLEJIDAD
+		dataType: int64
+		formatString: 0
+		lineageTag: 39e7b7ba-7d88-4883-899e-c8002da2addb
+		summarizeBy: sum
+		sourceColumn: ID_COMPLEJIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_REITERACION
+		dataType: string
+		lineageTag: ebf9ef47-5be6-4666-acf2-f3f27d8fc5db
+		summarizeBy: none
+		sourceColumn: DS_REITERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_REITERACION
+		dataType: int64
+		formatString: 0
+		lineageTag: c2303930-8158-40db-ab01-958e442d7128
+		summarizeBy: sum
+		sourceColumn: ID_REITERACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_DOLO_IMPRUDENCIA
+		dataType: string
+		lineageTag: b78ef86d-18eb-41ea-9445-7ac358ea223d
+		summarizeBy: none
+		sourceColumn: DS_DOLO_IMPRUDENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_DOLO_IMPRUDENCIA
+		dataType: int64
+		formatString: 0
+		lineageTag: b39ccb89-34b0-4fda-b5a8-bce126354dbf
+		summarizeBy: sum
+		sourceColumn: ID_DOLO_IMPRUDENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_INTERVENCION_TERCEROS
+		dataType: string
+		lineageTag: f73e87f7-517e-40b9-bee5-845d030d7ed6
+		summarizeBy: none
+		sourceColumn: DS_INTERVENCION_TERCEROS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_INTERVENCION_TERCEROS
+		dataType: int64
+		formatString: 0
+		lineageTag: 65eabd93-65f4-4e3b-8963-7bcd20f41bb5
+		summarizeBy: sum
+		sourceColumn: ID_INTERVENCION_TERCEROS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_INTERVENCION_SUBCONTRATAS
+		dataType: string
+		lineageTag: d38e4653-b468-4a21-a436-734de56a18da
+		summarizeBy: none
+		sourceColumn: DS_INTERVENCION_SUBCONTRATAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_INTERVENCION_SUBCONTRATAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 18c7a7c8-553d-40a0-b30d-a2cb8b2f852d
+		summarizeBy: sum
+		sourceColumn: ID_INTERVENCION_SUBCONTRATAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PB_INHERENTE
+		dataType: double
+		lineageTag: 20d82464-fb52-46dd-864c-46c21853656d
+		summarizeBy: sum
+		sourceColumn: PB_INHERENTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DS_MULTAS_ASOCIADAS
+		dataType: string
+		lineageTag: 3027bfc4-ecdd-4742-ba28-47758652204a
+		summarizeBy: none
+		sourceColumn: DS_MULTAS_ASOCIADAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_MULTAS_ASOCIADAS
+		dataType: int64
+		formatString: 0
+		lineageTag: 056b0f2e-8d4f-4d23-8cda-e2f7f7d1f970
+		summarizeBy: sum
+		sourceColumn: ID_MULTAS_ASOCIADAS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_PERDIDA_CLASIFICACION
+		dataType: double
+		lineageTag: 59fa8d87-e30d-4134-9ae4-8a5ac594d9d1
+		summarizeBy: sum
+		sourceColumn: FG_PERDIDA_CLASIFICACION
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ID_PERDIDA_CLASIFICACION
+		dataType: int64
+		formatString: 0
+		lineageTag: cbebb37d-e337-4f53-9424-e9137fa1b57e
+		summarizeBy: sum
+		sourceColumn: ID_PERDIDA_CLASIFICACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_IMPACTO_REPUTACIONAL
+		dataType: string
+		lineageTag: 76b42a62-c3b2-4f49-b521-b8d8b3c13a01
+		summarizeBy: none
+		sourceColumn: DS_IMPACTO_REPUTACIONAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_IMPACTO_REPUTACIONAL
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b269d9f-1aa3-4d8e-9664-7f6e40c3bde2
+		summarizeBy: sum
+		sourceColumn: ID_IMPACTO_REPUTACIONAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column IN_IMPACTO_INHERENTE
+		dataType: double
+		lineageTag: b16a501e-b0bd-4d6d-8128-ca8143a16630
+		summarizeBy: sum
+		sourceColumn: IN_IMPACTO_INHERENTE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IN_RIESGO_INHERENTE
+		dataType: double
+		formatString: 0.0
+		lineageTag: d1bdd9db-d28e-4d73-8705-44b7eda652f0
+		summarizeBy: sum
+		sourceColumn: IN_RIESGO_INHERENTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_PRIORIZACION_RIESGO_RESIDUAL
+		dataType: string
+		lineageTag: 788bf34b-ea41-4add-bbd8-454bcd8632cd
+		summarizeBy: none
+		sourceColumn: DS_PRIORIZACION_RIESGO_RESIDUAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_COMENTARIO
+		dataType: string
+		lineageTag: 1fb3108b-984b-41bf-bcc4-fd82c4e5c877
+		summarizeBy: none
+		sourceColumn: DS_COMENTARIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c6efc3f3-76f1-498a-a616-1a3e26ce6182
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: 4aeba75e-0238-4bae-b146-b20c4eb048ce
+			defaultHierarchy: LocalDateTable_0a7bb593-22cf-41da-afa8-db2f11caaa68.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4b75314d-1044-4fa3-8b7d-900590bc1aef
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: f3cf9a94-ce78-4d97-b839-0fb5d2f4c00c
+			defaultHierarchy: LocalDateTable_1f12abc2-a744-4dc7-a3ec-04a3da297df4.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column APLICABILIDAD =
+			
+			IF('DW_RIESGOS FAC_RIESGOS_INHERENTES'[FG_APLICABILIDAD]=1,"Sí","No")
+		lineageTag: 120abb8e-de4c-408c-ba6f-d64a3ab4749b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_FICHERO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ed70999f-9fc7-4281-ac18-58c05fc3e5b2
+		summarizeBy: none
+		sourceColumn: FE_FICHERO
+
+		variation Variación
+			isDefault
+			relationship: 13448f85-cdee-42b7-9c80-dddf4185a317
+			defaultHierarchy: LocalDateTable_2590aab8-6ee6-409b-91f5-4ac3a62eeb4e.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'DW_RIESGOS FAC_RIESGOS_INHERENTES-1ae8ca1e-e1a8-4309-a28e-9b8d64ae1488' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_FAC_RIESGOS_INHERENTES = Origen{[Schema="DW_RIESGOS",Item="FAC_RIESGOS_INHERENTES"]}[Data]
+				in
+				    DW_RIESGOS_FAC_RIESGOS_INHERENTES
+
+	annotation PBI_ResultType = Table
+

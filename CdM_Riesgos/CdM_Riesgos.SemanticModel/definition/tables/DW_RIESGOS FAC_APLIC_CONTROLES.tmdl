@@ -1,0 +1,144 @@
+table 'DW_RIESGOS FAC_APLIC_CONTROLES'
+	lineageTag: 62604c89-807f-4a27-91b1-0c3f9d92c9e9
+
+	measure 'PRUEBA tipo control' = ```
+			
+			--CALCULATE(
+			    
+			COUNT('DW_RIESGOS FAC_APLIC_CONTROLES'[SK_APLIC_CONTROLES])
+			--,'DW_RIESGOS DIM_CONTROLES'[DS_TIPO_CONTROL]="Preventivo")
+			```
+		formatString: 0
+		lineageTag: 10fff400-f4ea-4b80-876d-ac195fe54c8f
+
+	column SK_APLIC_CONTROLES
+		dataType: int64
+		formatString: 0
+		lineageTag: 411947d5-6c6c-4ca9-a059-9751d90efeb8
+		summarizeBy: sum
+		sourceColumn: SK_APLIC_CONTROLES
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_NEGOCIO
+		dataType: int64
+		formatString: 0
+		lineageTag: fdf4216f-842d-4d9a-80d4-a99ce612b50c
+		summarizeBy: none
+		sourceColumn: SK_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_CONTROL
+		dataType: int64
+		formatString: 0
+		lineageTag: e864f0d1-71c8-4509-b832-03de27613bf8
+		summarizeBy: none
+		sourceColumn: SK_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_APLICABILIDAD
+		dataType: int64
+		formatString: 0
+		lineageTag: 864e507a-9d24-42d8-b58e-8e4da214d46a
+		summarizeBy: sum
+		sourceColumn: FG_APLICABILIDAD
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CONTROL_ASIGNACION_MATRIZ
+		dataType: string
+		lineageTag: 21f5e1f5-e8e7-4e52-b444-0562e7c2bace
+		summarizeBy: none
+		sourceColumn: DS_CONTROL_ASIGNACION_MATRIZ
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CONTROL_OWNER
+		dataType: string
+		lineageTag: 9479123b-98cd-4a6e-90eb-c787b3c50b27
+		summarizeBy: none
+		sourceColumn: DS_CONTROL_OWNER
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_CONTROL_OWNER
+		dataType: string
+		lineageTag: 7e091b79-67b1-4b7b-9824-7ce60f32168b
+		summarizeBy: none
+		sourceColumn: ID_CONTROL_OWNER
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CONTROL_EMPLEADO_ALTA
+		dataType: string
+		lineageTag: fd7e86e4-145e-41b0-ac07-9a18b7d5e42d
+		summarizeBy: none
+		sourceColumn: DS_CONTROL_EMPLEADO_ALTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_EFICIENCIA_OPERATIVA
+		dataType: string
+		lineageTag: 7fd55c74-f4bd-43d8-8af3-4c378cb14478
+		summarizeBy: none
+		sourceColumn: DS_EFICIENCIA_OPERATIVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: beb49204-b8d7-4962-bc00-314c00dd27c2
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: f23fae46-d951-44c3-8607-229af9adf0f8
+			defaultHierarchy: LocalDateTable_273061ce-90fa-4911-92fe-ca7051744b8b.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5d5b0545-b408-4c7a-8781-592f2dd7c7d2
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: d9287419-4a20-4e7a-8078-47fce71491fc
+			defaultHierarchy: LocalDateTable_32a0f241-f116-42cd-b899-e631432ce7cd.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_FICHERO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4350c999-8b70-47f1-95ed-e802b67779a2
+		summarizeBy: none
+		sourceColumn: FE_FICHERO
+
+		variation Variación
+			isDefault
+			relationship: 65d9c3f8-be80-45e7-a6a4-2a3a316c9130
+			defaultHierarchy: LocalDateTable_2e5bf356-17c1-46a7-a603-b1f6b41f6795.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'DW_RIESGOS FAC_APLIC_CONTROLES-9fc949cd-fddb-478f-bf12-90411ce37681' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_FAC_APLIC_CONTROLES = Origen{[Schema="DW_RIESGOS",Item="FAC_APLIC_CONTROLES"]}[Data]
+				in
+				    DW_RIESGOS_FAC_APLIC_CONTROLES
+
+	annotation PBI_ResultType = Table
+

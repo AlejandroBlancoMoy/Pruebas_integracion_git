@@ -1,0 +1,74 @@
+table '1.  Medidas - riesgos'
+	lineageTag: a7011c08-f4ea-4f00-ab23-40b5de6a409c
+
+	measure IconoAlerta = UNICHAR(9888)
+		lineageTag: de8ecbf5-e58d-4a42-a8b3-77279120b334
+
+	measure Key_controls =
+			
+			CALCULATE(
+			COUNT('DW_RIESGOS DIM_CONTROLES'[SK_CONTROL]),'DW_RIESGOS DIM_CONTROLES'[FG_CONTROL_TOTAL]=1)
+		formatString: 0
+		lineageTag: 2606bcb9-9788-4fc3-a6ec-9ec43ff96368
+
+	measure M_Mensaje_alerta =
+			
+			IF(ISFILTERED('DW_RIESGOS DIM_NEGOCIO'[DS_NEGOCIO]),"",[IconoAlerta] &"  " & "Para optimizar esta visualización se recomienda seleccionar un negocio")
+		lineageTag: 5a283b68-2fa3-4044-8e9c-31b1c562591d
+
+	measure M_numero_controles =
+			
+			DISTINCTCOUNTNOBLANK('DW_RIESGOS DIM_CONTROLES'[CO_CONTROL])
+		formatString: 0
+		lineageTag: f7b8c9b6-69dd-4f61-9bae-f3b892f5658e
+
+	measure M_RIEGOS_APLICABLES =
+			
+			DISTINCTCOUNTNOBLANK('DW_RIESGOS FAC_RIESGOS_AREAS'[SK_RIESGO_PENAL])
+		formatString: 0
+		lineageTag: 34db0dfd-6f27-4946-ae13-9db95ba8c4eb
+
+	measure M_riesgos_gestionados =
+			
+			CALCULATE(
+			COUNT('DW_RIESGOS FAC_RIESGOS_INHERENTES'[SK_RIESGO_PENAL]), 'DW_RIESGOS FAC_RIESGOS_INHERENTES'[FG_APLICABILIDAD]=1
+			)
+		formatString: 0
+		lineageTag: e012169e-4aac-49bf-b538-f753909fdff7
+
+	measure Riesgos_Restantes = DISTINCTCOUNT('DW_RIESGOS DIM_RIESGOS_PENALES'[SK_RIESGO_PENAL])-DISTINCTCOUNT('DW_RIESGOS FAC_RIESGOS_AREAS'[SK_RIESGO_PENAL])
+		formatString: 0
+		lineageTag: a15a398d-2e6c-4a0a-95d5-c2a491eba974
+
+	measure Rango_Aplicabilidad = DISTINCTCOUNT('DW_RIESGOS DIM_RIESGOS_PENALES'[SK_RIESGO_PENAL])+3
+		formatString: 0
+		lineageTag: fa994b36-4f2b-4ef2-8090-54af5a4dcdba
+
+	measure Rango_Negocios = MAX('DW_RIESGOS DIM_CONTROLES'[NU_NEGOCIOS])+0.5
+		lineageTag: cbbf32b2-923a-4505-bde5-3d54d0b6c1fd
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Rango_Riesgos = MAX('DW_RIESGOS DIM_CONTROLES'[NU_RIESGOS])+3
+		formatString: 0
+		lineageTag: 5f23a537-0509-4977-a835-44d6ef2d6a35
+
+	measure Resto_controles =
+			
+			CALCULATE(
+			COUNT('DW_RIESGOS DIM_CONTROLES'[SK_CONTROL]),'DW_RIESGOS DIM_CONTROLES'[FG_CONTROL_TOTAL]=0)
+		formatString: 0
+		lineageTag: 105652ba-1db7-4f77-abd3-7c1bce0df395
+
+	partition '1.  Medidas - riesgos-0906ccc4-0fea-4df7-94f2-4e036374d52b' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection9c8bdc094e19c743195c",
+  "displayName": "Seguimiento de políticas",
+  "displayOption": "FitToPage",
+  "height": 697,
+  "width": 1280,
+  "visualInteractions": [
+    {
+      "source": "66b447700ee1685500a0",
+      "target": "c692cf0ca289b3e80306",
+      "type": "NoFilter"
+    },
+    {
+      "source": "66b447700ee1685500a0",
+      "target": "162115fb50602b9a1b85",
+      "type": "NoFilter"
+    },
+    {
+      "source": "66b447700ee1685500a0",
+      "target": "f0c8247c890ea6d7a54e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "66b447700ee1685500a0",
+      "target": "0fa02de5a7b07c55193c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "66b447700ee1685500a0",
+      "target": "eb4e4fefb51ab7c3e1ac",
+      "type": "NoFilter"
+    }
+  ]
+}

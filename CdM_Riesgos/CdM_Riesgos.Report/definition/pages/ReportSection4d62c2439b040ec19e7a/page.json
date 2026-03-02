@@ -1,0 +1,95 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "ReportSection4d62c2439b040ec19e7a",
+  "displayName": "Seguimiento de formaciones",
+  "displayOption": "FitToPage",
+  "height": 626,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filter6ff952cfbe0adeac3210",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DW_RIESGOS FAC_HIST_EMPLEADOS"
+              }
+            },
+            "Property": "DS_DIGITAL_si/no"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DW_RIESGOS FAC_HIST_EMPLEADOS",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "DS_DIGITAL_si/no"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Sí'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ca602ba1e867a0dd0dd8",
+      "target": "58694088841cf9533c0e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ca602ba1e867a0dd0dd8",
+      "target": "a275d8e1ec8f26b409bc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ca602ba1e867a0dd0dd8",
+      "target": "67ebb4aa8f6f3ddf44a4",
+      "type": "NoFilter"
+    },
+    {
+      "source": "ca602ba1e867a0dd0dd8",
+      "target": "7d34ee8cfb57ae8e6118",
+      "type": "NoFilter"
+    }
+  ]
+}

@@ -1,0 +1,1107 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "20139462c63a835ae496",
+  "position": {
+    "x": 0,
+    "y": 119.1044776119403,
+    "z": 3000,
+    "height": 600.8955223880597,
+    "width": 1279.7014925373135,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS DIM_NEGOCIO"
+                    }
+                  },
+                  "Property": "DS_NEGOCIO"
+                }
+              },
+              "queryRef": "DW_RIESGOS DIM_NEGOCIO.DS_NEGOCIO",
+              "displayName": "Negocio"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS DIM_RIESGOS_PENALES"
+                    }
+                  },
+                  "Property": "CO_RIESGO_PENAL"
+                }
+              },
+              "queryRef": "DW_RIESGOS DIM_RIESGOS_PENALES.CO_RIESGO_PENAL",
+              "displayName": "Ref. riesgo penal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS DIM_RIESGOS_PENALES"
+                    }
+                  },
+                  "Property": "DS_RIESGO_PENAL"
+                }
+              },
+              "queryRef": "DW_RIESGOS DIM_RIESGOS_PENALES.DS_RIESGO_PENAL",
+              "displayName": "Riesgo penal"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "APLICABILIDAD"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.APLICABILIDAD",
+              "displayName": "Aplicabilidad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_PRIORIZACION_RIESGO_RESIDUAL"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_PRIORIZACION_RIESGO_RESIDUAL",
+              "displayName": "Priorización riesgo residual"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_FRECUENCIA"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_FRECUENCIA",
+              "displayName": "Frecuencia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_COMPLEJIDAD"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_COMPLEJIDAD",
+              "displayName": "Complejidad"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_REITERACION"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_REITERACION",
+              "displayName": "Reiteración"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_DOLO_IMPRUDENCIA"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_DOLO_IMPRUDENCIA",
+              "displayName": "Dolo/Imprudencia"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_INTERVENCION_TERCEROS"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_INTERVENCION_TERCEROS",
+              "displayName": "Intervención de terceros"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                        }
+                      },
+                      "Property": "PB_INHERENTE"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(DW_RIESGOS FAC_RIESGOS_INHERENTES.PB_INHERENTE)",
+              "displayName": "Probabilidad inherente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_INTERVENCION_SUBCONTRATAS"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_INTERVENCION_SUBCONTRATAS",
+              "displayName": "Intervención subcontratas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_MULTAS_ASOCIADAS"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_MULTAS_ASOCIADAS",
+              "displayName": "Multas asociadas"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                        }
+                      },
+                      "Property": "FG_PERDIDA_CLASIFICACION"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(DW_RIESGOS FAC_RIESGOS_INHERENTES.FG_PERDIDA_CLASIFICACION)",
+              "displayName": "Pérdida de clasificación para ser contratado por la administración pública"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "DS_IMPACTO_REPUTACIONAL"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_IMPACTO_REPUTACIONAL",
+              "displayName": "Impacto reputacional"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "IN_IMPACTO_INHERENTE"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.IN_IMPACTO_INHERENTE",
+              "displayName": "Impacto inherente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                    }
+                  },
+                  "Property": "IN_RIESGO_INHERENTE"
+                }
+              },
+              "queryRef": "DW_RIESGOS FAC_RIESGOS_INHERENTES.IN_RIESGO_INHERENTE",
+              "displayName": "Riesgo inherente"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DW_RIESGOS DIM_NEGOCIO"
+                  }
+                },
+                "Property": "DS_NEGOCIO"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "grid": [
+        {
+          "properties": {
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 1,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "gridHorizontal": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "outlineStyle": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "85.76505904291366D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Riesgo penal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.64089587526007D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Frecuencia de la actividad"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "107.1687770850962D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Reiteración / Histórico de sanciones"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "148.90910535465545D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Dolo / imprudencia"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "184.13825624230847D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Intervención de terceros que actúen en nombre de la compañía"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "120.42204117911467D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Intervención de subcontratas"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "159.80047249921935D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(1.2 Pantalla R. I.PROBABILIDAD INHERENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "211.7422141966339D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Multas asociadas a cada delito"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "232.36421676629072D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Pérdida de clasificación para ser contratado por la administración pública"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "132.56416144271563D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Impacto reputacional"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.5602463836941D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(1.2 Pantalla R. I.IMPACTO INHERENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "79.5179073060668D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(1.2 Pantalla R. I.RIESGO INHERENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "111.93232182107205D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "1.2 Pantalla R. I.Ref. Riesgo penal"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "225D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS DIM_RIESGOS_PENALES.DS_RIESGO_PENAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "181D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_PRIORIZACION_RIESGO_RESIDUAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "559D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_IMPACTO_REPUTACIONAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "481D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_MULTAS_ASOCIADAS"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "470D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(DW_RIESGOS FAC_RIESGOS_INHERENTES.FG_PERDIDA_CLASIFICACION)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "126D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.IN_IMPACTO_INHERENTE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "117D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.IN_RIESGO_INHERENTE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "169D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_INTERVENCION_TERCEROS"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "175D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_DOLO_IMPRUDENCIA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "147D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_REITERACION"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "104D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_FRECUENCIA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "175D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_INTERVENCION_SUBCONTRATAS"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "155D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(DW_RIESGOS FAC_RIESGOS_INHERENTES.PB_INHERENTE)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "63D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS DIM_NEGOCIO.DS_NEGOCIO"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS DIM_RIESGOS_PENALES.CO_RIESGO_PENAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.APLICABILIDAD"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_COMPLEJIDAD"
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "icon": {
+              "kind": "Icon",
+              "layout": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'After'"
+                  }
+                }
+              },
+              "verticalAlignment": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'Top'"
+                  }
+                }
+              },
+              "value": {
+                "expr": {
+                  "Conditional": {
+                    "Cases": [
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                                      }
+                                    },
+                                    "Property": "DS_PRIORIZACION_RIESGO_RESIDUAL"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'Probable'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'FlagHigh'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                                      }
+                                    },
+                                    "Property": "DS_PRIORIZACION_RIESGO_RESIDUAL"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'Crítico'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'FlagLow'"
+                          }
+                        }
+                      },
+                      {
+                        "Condition": {
+                          "Comparison": {
+                            "ComparisonKind": 0,
+                            "Left": {
+                              "Aggregation": {
+                                "Expression": {
+                                  "Column": {
+                                    "Expression": {
+                                      "SourceRef": {
+                                        "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+                                      }
+                                    },
+                                    "Property": "DS_PRIORIZACION_RIESGO_RESIDUAL"
+                                  }
+                                },
+                                "Function": 3
+                              }
+                            },
+                            "Right": {
+                              "Literal": {
+                                "Value": "'Posible'"
+                              }
+                            }
+                          },
+                          "Annotations": {
+                            "PowerBI.SQExprEvaluationKind": 1,
+                            "PowerBI.SQExprTextOperatorOption": 2
+                          }
+                        },
+                        "Value": {
+                          "Literal": {
+                            "Value": "'FlagMedium'"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "DW_RIESGOS FAC_RIESGOS_INHERENTES.DS_PRIORIZACION_RIESGO_RESIDUAL"
+          }
+        },
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C7B174'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'AlternatingRowsNew'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filterc595f92c6b063200309e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES"
+              }
+            },
+            "Property": "DS_PRIORIZACION_RIESGO_RESIDUAL"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DW_RIESGOS FAC_RIESGOS_INHERENTES",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "DS_PRIORIZACION_RIESGO_RESIDUAL"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "''"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

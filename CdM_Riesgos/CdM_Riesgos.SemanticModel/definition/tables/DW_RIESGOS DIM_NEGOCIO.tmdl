@@ -1,0 +1,67 @@
+table 'DW_RIESGOS DIM_NEGOCIO'
+	lineageTag: a37bbd25-b752-4dc4-96ad-e8b2956c7e78
+
+	column SK_NEGOCIO
+		dataType: int64
+		formatString: 0
+		lineageTag: e45614fa-7146-4607-9b80-e1ed243600e3
+		summarizeBy: none
+		sourceColumn: SK_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_NEGOCIO
+		dataType: string
+		lineageTag: 176b2efe-4755-46ef-89cd-daa7cc326b72
+		summarizeBy: none
+		sourceColumn: DS_NEGOCIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_BUSINESS_UNIT
+		dataType: string
+		lineageTag: af33b5f5-f005-406a-a115-a16fd6f53353
+		summarizeBy: none
+		sourceColumn: DS_BUSINESS_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1c10c18c-c5a9-4b75-997c-981abacfedeb
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: 1a56106e-7833-4941-84f8-b52c25fd2db9
+			defaultHierarchy: LocalDateTable_f32db033-2866-40b4-adef-65b2fe602ece.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b3ce7096-3ec5-43ac-b98a-e1b7ccc791ad
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: 3520b106-b182-488b-8525-b63e4b4b6c86
+			defaultHierarchy: LocalDateTable_aae07048-7c89-42da-8449-4ebef942d661.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS DIM_NEGOCIO-d034b4d9-8471-47df-bc2f-bf6a0e38b739' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_DIM_NEGOCIO = Origen{[Schema="DW_RIESGOS",Item="DIM_NEGOCIO"]}[Data]
+				in
+				    DW_RIESGOS_DIM_NEGOCIO
+
+	annotation PBI_ResultType = Table
+

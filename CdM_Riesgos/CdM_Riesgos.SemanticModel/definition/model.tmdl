@@ -1,0 +1,72 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// Errores en las consultas cargadas en 05/06/2023 12:03:50.
+queryGroup 'Errores en las consultas: 05/06/2023 12:03:50'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["DW_RIESGOS DIM_AREAS","DW_RIESGOS DIM_CONTROLES","DW_RIESGOS DIM_NEGOCIO","DW_RIESGOS DIM_RIESGOS_PENALES","DW_RIESGOS FAC_APLIC_CONTROLES","DW_RIESGOS FAC_RIESGOS_AREAS","DW_RIESGOS FAC_RIESGOS_INHERENTES","DW_RIESGOS FAC_RIESGOS_RESIDUALES","DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES","2. Medidas wd - politicas","DW_RIESGOS DIM_EMPLEADOS","DW_RIESGOS FAC_HIST_EMPLEADOS","3. Medidas wd - formaciones","DW_RIESGOS FAC_CURSOS","1.  Medidas - riesgos","Database"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.144.1155.0 (25.06)+46435b07013d2a234d7fd007083a9e70b8e79f1c
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_45a2e8f4-ef77-4dca-949a-aa8e262601f9
+ref table 'DW_RIESGOS DIM_AREAS'
+ref table LocalDateTable_7b047fe5-4c27-452e-948b-de45215867fa
+ref table LocalDateTable_a4a22c21-0d68-483b-9da2-4e39dc31bba9
+ref table 'DW_RIESGOS DIM_CONTROLES'
+ref table LocalDateTable_8353e5ff-b8a4-4cec-9e2a-9d92f254f3f6
+ref table LocalDateTable_af0e2a89-de63-4024-8ed6-8d4be52dd13f
+ref table 'DW_RIESGOS DIM_NEGOCIO'
+ref table LocalDateTable_f32db033-2866-40b4-adef-65b2fe602ece
+ref table LocalDateTable_aae07048-7c89-42da-8449-4ebef942d661
+ref table 'DW_RIESGOS DIM_RIESGOS_PENALES'
+ref table LocalDateTable_fa9a7840-afd5-4334-ac70-974630b1e3be
+ref table LocalDateTable_9c2f42b7-a63e-48cc-85fb-88e676cd4314
+ref table 'DW_RIESGOS FAC_APLIC_CONTROLES'
+ref table LocalDateTable_273061ce-90fa-4911-92fe-ca7051744b8b
+ref table LocalDateTable_32a0f241-f116-42cd-b899-e631432ce7cd
+ref table 'DW_RIESGOS FAC_RIESGOS_AREAS'
+ref table LocalDateTable_dfb6efba-1c0a-40fc-bd1b-af3e88ab0f8f
+ref table LocalDateTable_cdd3b44e-a60f-4560-ab29-e8c8b145e440
+ref table 'DW_RIESGOS FAC_RIESGOS_INHERENTES'
+ref table LocalDateTable_0a7bb593-22cf-41da-afa8-db2f11caaa68
+ref table LocalDateTable_1f12abc2-a744-4dc7-a3ec-04a3da297df4
+ref table 'DW_RIESGOS FAC_RIESGOS_RESIDUALES'
+ref table LocalDateTable_66ced40a-2c45-4e99-b58c-02a4ba648b82
+ref table LocalDateTable_4e89aec5-f126-43a8-91f4-ca0f1f2bf723
+ref table 'DW_RIESGOS FAC_TOTAL_RIESGOS_RESIDUALES'
+ref table LocalDateTable_7cd16aa4-45f1-450b-a77c-60636747f903
+ref table LocalDateTable_04e15070-4c4c-422f-a462-eefedfbad0ef
+ref table LocalDateTable_2e5bf356-17c1-46a7-a603-b1f6b41f6795
+ref table LocalDateTable_4df26df1-2e99-4270-92f2-e6634b973df0
+ref table LocalDateTable_2590aab8-6ee6-409b-91f5-4ac3a62eeb4e
+ref table LocalDateTable_7bb2b46c-8aba-42d6-9903-0559c444d49c
+ref table LocalDateTable_357e84cd-7dc4-4fe1-9919-7dd25df6141e
+ref table '2. Medidas wd - politicas'
+ref table 'DW_RIESGOS DIM_EMPLEADOS'
+ref table LocalDateTable_1737ea5d-6d37-4d85-9ebd-f1261ab3e04b
+ref table LocalDateTable_ef7052aa-7eee-4de5-a3e0-b652d90e8668
+ref table 'DW_RIESGOS FAC_HIST_EMPLEADOS'
+ref table LocalDateTable_0c56fec3-1924-457b-8b1e-13fa656ccb4c
+ref table LocalDateTable_de921c4d-661a-43ac-a52a-153f84016665
+ref table LocalDateTable_8dd11fb8-9eb2-4b56-bbb1-63945a20f4e5
+ref table LocalDateTable_2810eb58-8b7b-4c99-9b86-0ade88521437
+ref table '3. Medidas wd - formaciones'
+ref table 'DW_RIESGOS FAC_CURSOS'
+ref table LocalDateTable_1a23e07f-5bb0-4e63-808d-9c14bd931a8c
+ref table LocalDateTable_1ab0d8dd-b340-46fb-9b0a-76e8bac4bf16
+ref table LocalDateTable_f09fc67f-3140-4bd2-87af-da55b62f82c6
+ref table '1.  Medidas - riesgos'
+
+ref cultureInfo es-ES
+

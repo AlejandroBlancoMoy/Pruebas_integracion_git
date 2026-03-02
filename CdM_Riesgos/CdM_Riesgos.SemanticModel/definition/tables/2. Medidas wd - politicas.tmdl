@@ -1,0 +1,667 @@
+table '2. Medidas wd - politicas'
+	lineageTag: 5c37dd4b-a1e4-4ce8-b32d-fe3994604bc4
+
+	measure Aceptacion_codigo_conducta = ```
+			
+			CALCULATE(
+			   [Total_empleados],
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CODIGO_CONDUCTA]=1)
+			
+			```
+		formatString: #,0
+		lineageTag: 13e1ccb1-4ac0-4225-85a0-f331fd1b8fbe
+
+	measure Aceptacion_normas_antocorrupcion =
+			
+			CALCULATE(
+			   [Total_empleados],
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_NORMAS_ANTICORRUPCION]=1)
+		formatString: #,0
+		lineageTag: 73c21e5e-88be-4710-98d3-b9de9a9c1a1e
+
+	measure Aceptacion_crime_prevention =
+			
+			CALCULATE(
+			    [Total_empleados],
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CRIME_PREVENTION]=1)
+		formatString: #,0
+		lineageTag: 849da473-afac-488a-adad-f4785feeb944
+
+	measure Total_empleados =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			  MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			  MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])= mes))
+			)
+		formatString: #,0
+		lineageTag: 55450995-07e4-4c23-a110-fb93bfef6449
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_codigo_conducta =
+			
+			DIVIDE(
+			[Aceptacion_codigo_conducta],[Total_empleados])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 5540668e-14fb-45a8-a4b6-2e45c0905762
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_crime_prevention =
+			
+			DIVIDE(
+			[Aceptacion_crime_prevention],[Total_empleados])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 6652498c-697e-4069-9753-ac650c704b63
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_normas_anticorrupcion =
+			
+			DIVIDE(
+			[Aceptacion_normas_antocorrupcion],[Total_empleados])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: c5ea16ef-3b57-45e3-946d-cd669b754032
+
+		changedProperty = FormatString
+
+	measure Total_directores =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Director" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Director" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])= mes))
+			)
+		formatString: #,0
+		lineageTag: 3ae96ca9-2e3d-4678-8685-537d7163048f
+
+	measure Total_resto_conID =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Resto de empleados con ID" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Resto de empleados con ID" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])= mes))
+			)
+		formatString: #,0
+		lineageTag: b5b083d1-f930-47c7-9131-6a3f1dfe7d11
+
+	measure Aceptacion_director_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_directores], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CODIGO_CONDUCTA]=1)
+		formatString: 0
+		lineageTag: 920da80b-480d-44ea-9fa6-3847fcba722a
+
+	measure %Aceptacion_director_codigo_conducta =
+			IF([Total_directores]=0,1,
+			DIVIDE(
+			[Aceptacion_director_codigo_conducta],[Total_directores]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 21c97133-e094-4310-9b67-b32faa04ee8d
+
+		changedProperty = FormatString
+
+	measure Aceptacion_director_crime_prevention =
+			
+			CALCULATE(
+			    [Total_directores], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CRIME_PREVENTION]=1)
+		formatString: 0
+		lineageTag: b1015cf3-5a31-4ddc-b3e4-3e6c594b326a
+
+	measure %Aceptacion_director_crime_prevention =
+			IF([Total_directores]=0,1,
+			IF(
+			    ISBLANK(
+			DIVIDE(
+			[Aceptacion_director_crime_prevention],[Total_directores])),0, DIVIDE(
+			[Aceptacion_director_crime_prevention],[Total_directores])))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 2cf07642-40ba-4788-8efe-8b6a0591b1f0
+
+		changedProperty = FormatString
+
+	measure Aceptacion_director_normas_anticorrupcion =
+			
+			CALCULATE(
+			    [Total_directores], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_NORMAS_ANTICORRUPCION]=1)
+		formatString: 0
+		lineageTag: 2189b6af-2380-4c69-bcaa-e6fcba0e48f0
+
+	measure %Aceptacion_director_normas_anticorrupcion =
+			IF([Total_directores]=0,1,
+			DIVIDE(
+			[Aceptacion_director_normas_anticorrupcion],[Total_directores]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 848f9ba5-6e22-437d-b142-647d2f2067da
+
+		changedProperty = FormatString
+
+	measure Aceptacion_gerente_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_gerentes], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CODIGO_CONDUCTA]=1)
+		formatString: 0
+		lineageTag: ac5c3690-f17d-4e6c-826b-f16c885ba295
+
+	measure Aceptacion_gerente_crime_prevention =
+			
+			CALCULATE(
+			    [Total_gerentes], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CRIME_PREVENTION]=1)
+		formatString: 0
+		lineageTag: de42e8e7-fee1-4f7a-be2b-a4748977aba1
+
+	measure Aceptacion_gerente_normas_anticorrupcion =
+			
+			CALCULATE(
+			    [Total_gerentes], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_NORMAS_ANTICORRUPCION]=1)
+		formatString: 0
+		lineageTag: 07da59f2-d327-437d-b280-ce0743aa8579
+
+	measure %Aceptacion_gerente_codigo_conducta =
+			IF([Total_gerentes]=0,1,
+			DIVIDE(
+			[Aceptacion_gerente_codigo_conducta],[Total_gerentes]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 811b8c2d-ef72-4d79-8d1f-d13caea72eda
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_gerente_crime_prevention =
+			IF([Total_gerentes]=0,1,
+			IF(
+			    ISBLANK(
+			DIVIDE(
+			[Aceptacion_gerente_crime_prevention],[Total_gerentes])),0,DIVIDE(
+			[Aceptacion_gerente_crime_prevention],[Total_gerentes])))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: a0c6eb73-5402-46a1-9f40-e9d5dc39bf72
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_gerente_normas_anticorrupcion =
+			IF([Total_gerentes]=0,1,
+			DIVIDE(
+			[Aceptacion_gerente_normas_anticorrupcion],[Total_gerentes]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 4503d21c-7430-40f5-b13e-6bfab08f9d79
+
+		changedProperty = FormatString
+
+	measure Aceptacion_resto_conID_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_resto_conID], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CODIGO_CONDUCTA]=1)
+		formatString: 0
+		lineageTag: 5875d958-8c56-4839-90ae-c0894b4d8ae5
+
+	measure Aceptacion_resto_conID_crime_prevention =
+			
+			CALCULATE(
+			    [Total_resto_conID], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CRIME_PREVENTION]=1)
+		formatString: 0
+		lineageTag: 48e46b75-ed82-4f29-81c0-1ac0ab7cac30
+
+	measure Aceptacion_resto_conID_normas_anticorrupcion =
+			
+			CALCULATE(
+			    [Total_resto_conID], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_NORMAS_ANTICORRUPCION]=1)
+		formatString: 0
+		lineageTag: 4dd623f4-180a-4643-acb7-deb8de933ec1
+
+	measure %Aceptacion_resto_conID_codigo_conducta =
+			IF([Total_resto_conID]=0,1,
+			DIVIDE(
+			[Aceptacion_resto_conID_codigo_conducta],[Total_resto_conID]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 0f784ff8-aaac-4c87-a677-d531cec6a1cb
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_resto_conID_crime_prevention =
+			IF([Total_resto_conID]=0,1,
+			DIVIDE(
+			[Aceptacion_resto_conID_crime_prevention],[Total_resto_conID]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: b52ea3ff-2bc4-4d51-82b6-823d4b0eb779
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_resto_conID_normas_anticorrupcion =
+			IF([Total_resto_conID]=0,1,
+			 DIVIDE(
+			[Aceptacion_resto_conID_normas_anticorrupcion],[Total_resto_conID]))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 78aefe71-c6ce-4853-83f6-010bb1a113c1
+
+		changedProperty = FormatString
+
+	measure Total_empleados_division =
+			
+			CALCULATE(
+			    [Total_empleados], ALL('DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_DIVISION]))
+		formatString: #,0
+		lineageTag: aa50c579-13d9-4ccc-a340-b9f6f0d46254
+
+		changedProperty = FormatString
+
+	measure %Empleados_division =
+			
+			DIVIDE(
+			[Total_empleados],[Total_empleados_division])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 24250319-4b5e-46f6-98e8-480448301b55
+
+		changedProperty = FormatString
+
+	measure Valor_anterior_empleados = ```
+			
+			VAR PreviousYearr = YEAR(MAX('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])) - 1
+			VAR PreviousYearEmployees = CALCULATE(COUNT('DW_RIESGOS FAC_HIST_EMPLEADOS'[SK_EMPLEADO]),Year('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])=PreviousYearr)
+			RETURN
+			    PreviousYearEmployees
+			
+			```
+		formatString: #,0
+		lineageTag: 0cc75b93-aaa0-46f6-bc66-54f3281c830e
+
+	measure %Variacion_empleados = ```
+			
+			VAR CurrentYear = YEAR(MAX('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]))
+			VAR PreviousYearr = CurrentYear - 1
+			VAR CurrentYearEmployees = CALCULATE([Total_empleados], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = CurrentYear)
+			VAR PreviousYearEmployees = CALCULATE([Total_empleados], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = PreviousYearr)
+			RETURN
+			    DIVIDE(CurrentYearEmployees - PreviousYearEmployees, PreviousYearEmployees, 0)
+			
+			```
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 98edb8bb-815a-423e-b61e-ddd909ad2214
+
+		changedProperty = FormatString
+
+	measure Valor_anterior_directores =
+			
+			CALCULATE(
+			    [Total_empleados], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO]="Director",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Mes_registro]="diciembre",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro]= SELECTEDVALUE('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro])-1
+			)
+		formatString: 0
+		lineageTag: 3bc7ee0e-0414-45de-a54f-4e7d179f6a01
+
+	measure %Variacion_directores =
+			
+			VAR CurrentYear = YEAR(MAX('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]))
+			VAR PreviousYearr = CurrentYear - 1
+			VAR CurrentYearEmployees = CALCULATE([Total_directores], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = CurrentYear)
+			VAR PreviousYearEmployees = CALCULATE([Total_directores], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = PreviousYearr)
+			RETURN
+			    DIVIDE(CurrentYearEmployees - PreviousYearEmployees, PreviousYearEmployees, 0)
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 841d0b56-4d95-408e-98ea-0c9b67b09555
+
+		changedProperty = FormatString
+
+	measure Valor_anterior_gerentes =
+			
+			CALCULATE(
+			    [Total_empleados], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO]="Gerente",
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[Mes_registro]="diciembre",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro]= SELECTEDVALUE('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro])-1
+			)
+		formatString: #,0
+		lineageTag: 7160b932-043d-4418-823e-b77fa2e60440
+
+	measure %Variacion_gerentes =
+			
+			VAR CurrentYear = YEAR(MAX('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]))
+			VAR PreviousYearr = CurrentYear - 1
+			VAR CurrentYearEmployees = CALCULATE([total_gerentes], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = CurrentYear)
+			VAR PreviousYearEmployees = CALCULATE([total_gerentes], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = PreviousYearr)
+			RETURN
+			    DIVIDE(CurrentYearEmployees - PreviousYearEmployees, PreviousYearEmployees, 0)
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: e9c5e8b9-4596-4012-b10d-8ce830a9c429
+
+		changedProperty = FormatString
+
+	measure Valor_anterior_resto_conID =
+			
+			CALCULATE(
+			   [Total_empleados], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO]="Resto de empleados con ID",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Mes_registro]="diciembre",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro]= SELECTEDVALUE('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro])-1
+			)
+		formatString: #,0
+		lineageTag: 7c335956-2be1-48fe-81ca-f1bfb571beb8
+
+	measure %Variacion_resto_conID =
+			
+			VAR CurrentYear = YEAR(MAX('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]))
+			VAR PreviousYearr = CurrentYear - 1
+			VAR CurrentYearEmployees = CALCULATE([Total_resto_conID], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = CurrentYear)
+			VAR PreviousYearEmployees = CALCULATE([Total_resto_conID], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = PreviousYearr)
+			RETURN
+			    DIVIDE(CurrentYearEmployees - PreviousYearEmployees, PreviousYearEmployees, 0)
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 55d6f7e4-4405-4b06-b188-2c427bf909d0
+
+		changedProperty = FormatString
+
+	measure Total_directores_gerentes =
+			
+			CALCULATE(
+			    [Total_empleados],
+			    OR('DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO]="Director",'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO]="Gerente")
+			)
+		formatString: #,0
+		lineageTag: 03014b55-3bff-4f1c-a6d2-c83fca493755
+
+	measure Aceptacion_directores_gerentes_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_directores_gerentes], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CODIGO_CONDUCTA]=1)
+		formatString: 0
+		lineageTag: 4e61fa68-52d3-4aef-89af-7099623225ad
+
+	measure %Aceptacion_directores_gerentes_codigo_conducta =
+			
+			DIVIDE(
+			[Aceptacion_directores_gerentes_codigo_conducta],[Total_directores_gerentes])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 4af284c4-bfe8-441c-8a90-6723178e8d4b
+
+		changedProperty = FormatString
+
+	measure Valor_anterior_directores_gerentes =
+			
+			CALCULATE(
+			    [Total_directores_gerentes]
+			    ,
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Mes_registro]="diciembre",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro]= SELECTEDVALUE('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro])-1
+			)
+		formatString: #,0
+		lineageTag: b3d37a37-7971-4a7b-9b46-399ad56cf85b
+
+	measure %Variacion_directores_gerentes =
+			
+			DIVIDE(
+			[Total_directores_gerentes]-[Valor_anterior_directores_gerentes],[Valor_anterior_directores_gerentes])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: b0ef106a-b068-405c-9ba3-518d5cedbdbc
+
+		changedProperty = FormatString
+
+	measure Valor_anterior_resto_sinID =
+			
+			CALCULATE(
+			    [Total_empleados], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO]="Resto de empleados sin ID",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Mes_registro]="diciembre",
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro]= SELECTEDVALUE('DW_RIESGOS FAC_HIST_EMPLEADOS'[Año_registro])-1
+			)
+		formatString: 0
+		lineageTag: db77b638-b85f-44a3-bc31-1b3a898edc82
+
+	measure Total_resto_sinID =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Resto de empleados sin ID" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Resto de empleados sin ID" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])= mes))
+			)
+		formatString: #,0
+		lineageTag: 9b5ba25e-1b26-45d5-a9a6-d70324fd11a1
+
+		changedProperty = FormatString
+
+	measure %Variacion_resto_sinID =
+			
+			VAR CurrentYear = YEAR(MAX('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]))
+			VAR PreviousYearr = CurrentYear - 1
+			VAR CurrentYearEmployees = CALCULATE([Total_resto_sinID], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = CurrentYear)
+			VAR PreviousYearEmployees = CALCULATE([Total_resto_sinID], YEAR('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = PreviousYearr)
+			RETURN
+			    DIVIDE(CurrentYearEmployees - PreviousYearEmployees, PreviousYearEmployees, 0)
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: c6b6dc81-cbf0-4de3-8892-7623cf5fec3f
+
+		changedProperty = FormatString
+
+	measure Aceptacion_resto_sinID_codigo_conducta =
+			
+			CALCULATE(
+			    [Total_resto_sinID], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CODIGO_CONDUCTA]=1)
+		formatString: 0
+		lineageTag: 6bd125d2-803a-48e4-b1ac-3c75baebea47
+
+	measure %Aceptacion_resto_sinID_codigo_conducta =
+			IF([Total_resto_sinID]=0,1,
+			IF(
+			    ISBLANK(
+			DIVIDE(
+			[Aceptacion_resto_sinID_codigo_conducta],[Total_resto_sinID])),0, DIVIDE(
+			[Aceptacion_resto_sinID_codigo_conducta],[Total_resto_sinID])
+			))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: d50036f2-5501-4822-84b9-19ed981dba6d
+
+		changedProperty = FormatString
+
+	measure Aceptacion_resto_sinID_crime_prevention =
+			
+			CALCULATE(
+			    [Total_resto_sinID], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CRIME_PREVENTION]=1)
+		formatString: 0
+		lineageTag: f688e8ee-b1a4-4397-9c5d-e339b94c7dcd
+
+	measure %Aceptacion_resto_sinID_crime_prevention =
+			IF([Total_resto_sinID]=0,1,
+			IF(
+			    ISBLANK(
+			DIVIDE(
+			[Aceptacion_resto_sinID_crime_prevention],[Total_resto_sinID])), 0,
+			DIVIDE(
+			[Aceptacion_resto_sinID_crime_prevention],[Total_resto_sinID])
+			))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 9c212f86-4ea6-4206-809f-0469664d3c76
+
+		changedProperty = FormatString
+
+	measure Aceptacion_resto_sinID_normas_anticorrupcion =
+			
+			CALCULATE(
+			    [Total_resto_sinID], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_NORMAS_ANTICORRUPCION]=1)
+		formatString: 0
+		lineageTag: 38e18d29-4fe5-4559-9423-ee85418b67c8
+
+	measure %Aceptacion_resto_sinID_normas_anticorrupcion =
+			IF([Total_resto_sinID]=0,1,
+			IF(
+			    ISBLANK(
+			DIVIDE(
+			[Aceptacion_resto_sinID_normas_anticorrupcion],[Total_resto_sinID])), 0,
+			DIVIDE(
+			[Aceptacion_resto_sinID_normas_anticorrupcion],[Total_resto_sinID])
+			))
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 925b2b7d-a06b-4cac-8a33-1e30d642fbd2
+
+		changedProperty = FormatString
+
+	measure %Total_Directores =
+			
+			DIVIDE(
+			[Total_directores],[Total_empleados_division])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 39293b2b-80c7-4657-8b43-4186ac38c6b6
+
+		changedProperty = FormatString
+
+	measure %Total_Gerentes =
+			
+			DIVIDE(
+			[Total_gerentes],[Total_empleados_division])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 65991f3a-973c-43fd-8e92-7156979eda47
+
+		changedProperty = FormatString
+
+	measure %Total_resto_conID =
+			
+			DIVIDE(
+			[Total_resto_conID],[Total_empleados_division])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 3324880f-66a7-49f2-9b4e-0dc2cd6aa700
+
+		changedProperty = FormatString
+
+	measure %Total_resto_sinID =
+			
+			IF(ISBLANK(
+			DIVIDE(
+			[Total_resto_sinID],[Total_empleados_division])),0,DIVIDE(
+			[Total_resto_sinID],[Total_empleados_division]))
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: aaca9b08-c129-42c1-b8df-cd370ba6ddd1
+
+	measure Aceptacion_directores_gerentes_normas_anticorrupcion =
+			
+			CALCULATE(
+			    [Total_directores_gerentes], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_NORMAS_ANTICORRUPCION]=1)
+		formatString: 0
+		lineageTag: 3079ddb7-9e8d-43f5-ae20-730563f7b03a
+
+	measure Aceptacion_directores_gerentes_crime_prevention =
+			
+			CALCULATE(
+			    [Total_directores_gerentes], 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FG_CRIME_PREVENTION]=1)
+		formatString: 0
+		lineageTag: c0ae5613-140d-4e3c-8820-55c96fd15d8a
+
+	measure %Aceptacion_directores_gerentes_normas_anticorrupcion =
+			
+			DIVIDE(
+			[Aceptacion_directores_gerentes_normas_anticorrupcion],[Total_directores_gerentes])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 4b1641d5-212b-4382-80c4-9621ea1b938a
+
+		changedProperty = FormatString
+
+	measure %Aceptacion_directores_gerentes_crime_prevention =
+			
+			DIVIDE(
+			[Aceptacion_directores_gerentes_crime_prevention],[Total_directores_gerentes])
+		formatString: 0.0\ %;-0.0\ %;0.0\ %
+		lineageTag: 85f2caec-283a-4c5c-93f7-d2e3210ce26f
+
+		changedProperty = FormatString
+
+	measure FechaMesMasAlto =
+			MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+		formatString: 0
+		lineageTag: 225138e5-2051-432f-8754-70fd55e5f2c7
+
+	measure Total_gerentes =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Gerente" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   'DW_RIESGOS FAC_HIST_EMPLEADOS'[DS_COLECTIVO] = "Gerente" &&MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])= mes))
+			)
+		formatString: #,0
+		lineageTag: 9ae46906-4785-458b-9356-67dd0127be20
+
+		changedProperty = FormatString
+
+	measure Total_empleados_v2 =
+			
+			VAR mes = MONTH(
+			MAXX(
+			    TOPN(1, VALUES('DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]), COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS')),
+			    'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]
+			))
+			return IF(ISBLANK(
+			    CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO]) = mes))),0,
+			CALCULATE(
+			    COUNTROWS('DW_RIESGOS FAC_HIST_EMPLEADOS'),
+			    FILTER('DW_RIESGOS FAC_HIST_EMPLEADOS',
+			   MONTH( 'DW_RIESGOS FAC_HIST_EMPLEADOS'[FE_REGISTRO])= mes))
+			)
+		formatString: 0
+		lineageTag: d2aa5af8-7670-404a-89e4-5300564bdf16
+
+	measure %Variacion_empleado_v2s
+		lineageTag: c1b87e21-8b49-47e5-a1f9-77706b7646a0
+
+	partition '2. Medidas wd - politicas-a907257a-d239-4351-803e-2ce41b42a148' = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,59 @@
+table 'DW_RIESGOS DIM_AREAS'
+	lineageTag: ff8af9eb-fa52-4d94-85b3-191ba597a820
+
+	column SK_AREA
+		dataType: int64
+		formatString: 0
+		lineageTag: 0bfa8eb3-c5da-4679-8f10-e172832f77f9
+		summarizeBy: none
+		sourceColumn: SK_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_AREA
+		dataType: string
+		lineageTag: d7899577-4be4-4932-97d5-c01419f48e0e
+		summarizeBy: none
+		sourceColumn: DS_AREA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: aca588b1-14a7-468b-914a-5f8f6a1c60d2
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: 2c5b5fc1-adcd-4ff6-985c-402abd71b0b9
+			defaultHierarchy: LocalDateTable_7b047fe5-4c27-452e-948b-de45215867fa.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6d41b065-a54d-4f73-ade1-3a6701f413ac
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: 59dfe844-83e9-45f8-bec9-a0f6ffcabaa9
+			defaultHierarchy: LocalDateTable_a4a22c21-0d68-483b-9da2-4e39dc31bba9.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS DIM_AREAS-59a30de2-94c8-41a4-b297-cfeb27a0cb84' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_DIM_AREAS = Origen{[Schema="DW_RIESGOS",Item="DIM_AREAS"]}[Data]
+				in
+				    DW_RIESGOS_DIM_AREAS
+
+	annotation PBI_ResultType = Table
+

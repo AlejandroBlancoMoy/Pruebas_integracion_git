@@ -1,0 +1,160 @@
+table 'DW_RIESGOS DIM_CONTROLES'
+	lineageTag: 89deffaf-6458-469e-9ab8-545ea7901170
+
+	column SK_CONTROL
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c33d5ee-1e52-4b0c-9bb8-00e35a46e972
+		summarizeBy: none
+		sourceColumn: SK_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CO_CONTROL
+		dataType: string
+		lineageTag: 3fcedaf7-83f8-4975-a8ad-74be73632ff8
+		summarizeBy: none
+		sourceColumn: CO_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CONTROL
+		dataType: string
+		lineageTag: 02d5a86c-3a9d-4443-865a-23b199dc6f7a
+		summarizeBy: none
+		sourceColumn: DS_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column CO_DOMINIO
+		dataType: string
+		lineageTag: b3a1f7af-79a5-4c7f-b93d-d9584b15cba1
+		summarizeBy: none
+		sourceColumn: CO_DOMINIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_TIPO_CONTROL
+		dataType: string
+		lineageTag: 9cc4ce41-2830-43d4-b0d6-a8242d46aad5
+		summarizeBy: none
+		sourceColumn: DS_TIPO_CONTROL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_AUTOMATIZACION
+		dataType: string
+		lineageTag: 3ac99782-89c7-4012-8205-3be73e739d64
+		summarizeBy: none
+		sourceColumn: DS_AUTOMATIZACION
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_FRECUENCIA
+		dataType: string
+		lineageTag: 64173e52-7026-4516-a502-412b46bd6d50
+		summarizeBy: none
+		sourceColumn: DS_FRECUENCIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_INTERVENCION_TERCEROS
+		dataType: int64
+		formatString: 0
+		lineageTag: 30971f82-f9ad-453a-8bf0-de4a4ff475da
+		summarizeBy: sum
+		sourceColumn: FG_INTERVENCION_TERCEROS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_RIESGOS_METRIC_MATRIZ
+		dataType: string
+		lineageTag: 59b00a40-4778-493c-af31-82c98da257ff
+		summarizeBy: none
+		sourceColumn: DS_RIESGOS_METRIC_MATRIZ
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_CONTROL_TOTAL
+		dataType: int64
+		formatString: 0
+		lineageTag: bf324fa4-f250-44ba-b125-12a7f5608514
+		summarizeBy: sum
+		sourceColumn: FG_CONTROL_TOTAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column NU_RIESGOS
+		dataType: int64
+		formatString: 0
+		lineageTag: d32a88fd-9c4a-4a80-8d97-ed94c1809489
+		summarizeBy: sum
+		sourceColumn: NU_RIESGOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column NU_NEGOCIOS
+		dataType: int64
+		formatString: 0
+		lineageTag: b3c508c6-e448-4997-b751-3cea9ab8332d
+		summarizeBy: sum
+		sourceColumn: NU_NEGOCIOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column FG_SCIIF
+		dataType: int64
+		formatString: 0
+		lineageTag: 465c74a8-9df4-487e-89e8-1c79104b9ab1
+		summarizeBy: sum
+		sourceColumn: FG_SCIIF
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dd5d2edd-22fd-4357-af47-3bc8df2a1130
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: 62b6c6d9-6501-4c32-af3d-551ffb806573
+			defaultHierarchy: LocalDateTable_8353e5ff-b8a4-4cec-9e2a-9d92f254f3f6.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 349927d8-aafd-4cb2-9f12-d912bc1586e7
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: ca3722e0-6fd4-46b6-8cc4-f1cc11cb6065
+			defaultHierarchy: LocalDateTable_af0e2a89-de63-4024-8ed6-8d4be52dd13f.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'INTERVENCION TERCEROS' =
+			
+			IF('DW_RIESGOS DIM_CONTROLES'[FG_INTERVENCION_TERCEROS]=1, "Sí", "No")
+		lineageTag: 3d7b191a-195b-417f-866e-44a8ffaacf2e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS DIM_CONTROLES-988fa6f2-1660-40fc-ab75-511923be51f8' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Database(Database, "DATA_DW"),
+				    DW_RIESGOS_DIM_CONTROLES = Origen{[Schema="DW_RIESGOS",Item="DIM_CONTROLES"]}[Data]
+				in
+				    DW_RIESGOS_DIM_CONTROLES
+
+	annotation PBI_ResultType = Table
+

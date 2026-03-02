@@ -1,0 +1,124 @@
+table 'DW_RIESGOS FAC_CURSOS'
+	lineageTag: a13c881b-a8fa-4f19-8020-523755b0775a
+
+	column SK_CURSO
+		dataType: int64
+		formatString: 0
+		lineageTag: c5c85130-5f63-42d0-b710-d3b0e859ef61
+		summarizeBy: sum
+		sourceColumn: SK_CURSO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SK_EMPLEADO
+		dataType: int64
+		formatString: 0
+		lineageTag: d7598992-eb28-45a1-999b-0a56885efcf9
+		summarizeBy: sum
+		sourceColumn: SK_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CURSO
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: de3f9db8-bf89-4b2d-adbf-7e81e21e5936
+		summarizeBy: none
+		sourceColumn: FE_CURSO
+
+		variation Variación
+			isDefault
+			relationship: d2ef4d00-4110-4a42-87c1-273f772539c9
+			defaultHierarchy: LocalDateTable_1a23e07f-5bb0-4e63-808d-9c14bd931a8c.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DS_CURSO_CODIGO_CONDUCTA
+		dataType: string
+		lineageTag: 9d03c411-5957-47ce-9a87-ee13bf31c42d
+		summarizeBy: none
+		sourceColumn: DS_CURSO_CODIGO_CONDUCTA
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CURSO_BUENA_MANERA_TRABAJAR
+		dataType: string
+		lineageTag: d9f9501e-ad7e-4676-ad45-237648b3f2b6
+		summarizeBy: none
+		sourceColumn: DS_CURSO_BUENA_MANERA_TRABAJAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_CARGA
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b9d5c8ff-dbdc-49ce-817b-f87542aa59f0
+		summarizeBy: none
+		sourceColumn: FE_CARGA
+
+		variation Variación
+			isDefault
+			relationship: ac3b9445-5616-41fa-a98e-3cfe4803e73d
+			defaultHierarchy: LocalDateTable_1ab0d8dd-b340-46fb-9b0a-76e8bac4bf16.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column FE_MODIFICACION
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: aba523b9-9268-47fe-a14f-0ae33ceac151
+		summarizeBy: none
+		sourceColumn: FE_MODIFICACION
+
+		variation Variación
+			isDefault
+			relationship: f1c1c57a-527a-4dab-8a11-4eaef5611218
+			defaultHierarchy: LocalDateTable_f09fc67f-3140-4bd2-87af-da55b62f82c6.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column DS_CURSO_LUCHANDO_CORRUPCION
+		dataType: string
+		lineageTag: c70b3299-eed3-4d3e-8a1f-ac9b6013e7e6
+		summarizeBy: none
+		sourceColumn: DS_CURSO_LUCHANDO_CORRUPCION
+
+		annotation SummarizationSetBy = Automatic
+
+	column AÑO_CURSO =
+			
+			'DW_RIESGOS FAC_CURSOS'[FE_CURSO].[Año]
+		formatString: 0
+		lineageTag: 35bd4dd7-f3dc-4a23-8c7f-1bca70afffe2
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_EMPLEADO
+		dataType: string
+		lineageTag: 155e7ed9-8d5d-4a0d-8272-9b0e4e848554
+		summarizeBy: none
+		sourceColumn: ID_EMPLEADO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PK = CONCATENATE('DW_RIESGOS FAC_CURSOS'[ID_EMPLEADO],'DW_RIESGOS FAC_CURSOS'[FE_CURSO])
+		lineageTag: a56b1cb4-06fc-4a78-a966-7e426c351aae
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'DW_RIESGOS FAC_CURSOS-391f9c85-b3de-4fd7-a3f3-40f7a14b46c5' = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases(Database),
+				    DATA_DW = Origen{[Name="DATA_DW"]}[Data],
+				    DW_RIESGOS_FAC_CURSOS = DATA_DW{[Schema="DW_RIESGOS",Item="FAC_CURSOS"]}[Data]
+				in
+				    DW_RIESGOS_FAC_CURSOS
+
+	annotation PBI_ResultType = Table
+
