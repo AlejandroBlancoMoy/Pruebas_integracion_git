@@ -55,5 +55,7 @@ table 'DW_RIESGOS DIM_AREAS'
 				in
 				    DW_RIESGOS_DIM_AREAS
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegación
 

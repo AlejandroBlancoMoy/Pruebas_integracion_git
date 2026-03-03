@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "227e6372cb551748923d",
+  "position": {
+    "x": 393,
+    "y": 528,
+    "z": 14002,
+    "height": 300,
+    "width": 300,
+    "tabOrder": 14002
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DW_RIESGOS DIM_NEGOCIO"
+                        }
+                      },
+                      "Property": "DS_NEGOCIO"
+                    }
+                  },
+                  "Function": 3
+                }
+              },
+              "queryRef": "Min(DW_RIESGOS DIM_NEGOCIO.DS_NEGOCIO)",
+              "nativeQueryRef": "Primera fecha: DS_NEGOCIO"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
