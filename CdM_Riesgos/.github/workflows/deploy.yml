@@ -1,0 +1,33 @@
+name: Deploy Power BI por entorno
+
+on:
+  push:
+    branches:
+      - ATS_CUMPLIMIENTO_RIESGOS_INT
+      - ATS_CUMPLIMIENTO_RIESGOS_PRE
+      - ATS_CUMPLIMIENTO_RIESGOS_PRO
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Aplicar parámetros de INT
+        if: github.ref == 'refs/heads/ATS_CUMPLIMIENTO_RIESGOS_INT'
+        run: |
+          sed -i 's/expression Database = "QECCDWH\.acciona\.int,60001"/expression Database = "QTCCDWH.acciona.int,50005"/' \
+          CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
+
+      - name: Aplicar parámetros de PRE
+        if: github.ref == 'refs/heads/ATS_CUMPLIMIENTO_RIESGOS_PRE'
+        run: |
+          sed -i 's/expression Database = "QECCDWH\.acciona\.int,60001"/expression Database = "QTCCDWH.acciona.int,50005"/' \
+          CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
+
+      - name: Aplicar parámetros de PRO
+        if: github.ref == 'refs/heads/ATS_CUMPLIMIENTO_RIESGOS_PRO'
+        run: |
+          sed -i 's/expression Database = "QTCCDWH\.acciona\.int,50005"/expression Database = "QECCDWH.acciona.int,60001"/' \
+          CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
