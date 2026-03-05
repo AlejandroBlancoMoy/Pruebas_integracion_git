@@ -1,4 +1,4 @@
-expression Database = "QTCCDWH.acciona.int,50005" meta [IsParameterQuery=true, List={"QTCCDWH.acciona.int,50005", "QECCDWH.acciona.int,60001"}, DefaultValue="QTCCDWH.acciona.int,50005", Type="Text", IsParameterQueryRequired=true]
+expression Database = "QECCDWH.acciona.int,60001" meta [IsParameterQuery=true, List={"QTCCDWH.acciona.int,50005", "QECCDWH.acciona.int,60001"}, DefaultValue="QTCCDWH.acciona.int,50005", Type="Text", IsParameterQueryRequired=true]
 	lineageTag: ef447815-9e6f-4b10-8c78-ceacfc251cd8
 
 	annotation PBI_ResultType = Text
