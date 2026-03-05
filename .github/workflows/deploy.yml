@@ -13,21 +13,31 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Aplicar parámetros de INT
         if: github.ref == 'refs/heads/ATS_CUMPLIMIENTO_RIESGOS_INT'
         run: |
-          sed -i 's/expression Database = "QECCDWH\.acciona\.int,60001"/expression Database = "QTCCDWH.acciona.int,50005"/' \
+          sed -i 's/expression Database = "[^"]*"/expression Database = "QTCCDWH.acciona.int,50005"/' \
           CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
 
       - name: Aplicar parámetros de PRE
         if: github.ref == 'refs/heads/ATS_CUMPLIMIENTO_RIESGOS_PRE'
         run: |
-          sed -i 's/expression Database = "QECCDWH\.acciona\.int,60001"/expression Database = "QTCCDWH.acciona.int,50005"/' \
+          sed -i 's/expression Database = "[^"]*"/expression Database = "QTCCDWH.acciona.int,50005"/' \
           CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
 
       - name: Aplicar parámetros de PRO
         if: github.ref == 'refs/heads/ATS_CUMPLIMIENTO_RIESGOS_PRO'
         run: |
-          sed -i 's/expression Database = "QTCCDWH\.acciona\.int,50005"/expression Database = "QECCDWH.acciona.int,60001"/' \
+          sed -i 's/expression Database = "[^"]*"/expression Database = "QECCDWH.acciona.int,60001"/' \
           CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
+
+      - name: Commit parámetros de entorno
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add CdM_Riesgos/CdM_Riesgos.SemanticModel/definition/expressions.tmdl
+          git diff --cached --quiet || git commit -m "ci: aplicar parámetros de entorno [skip ci]"
+          git push
